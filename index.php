@@ -9,7 +9,7 @@ page_start('home', 'QRD 2027 — International Conference on Quant, Risk and Dat
             <h1 id="hero-title" class="hero-title" data-split><span class="line">QRD</span> <span class="line">2027</span></h1>
             <div class="hero-sub">
                 <p class="hero-tagline">International Conference on Quant, Risk and Data</p>
-                <p class="hero-collab">In collaboration with RTQF, IISc Bangalore</p>
+                <p class="hero-collab">Jointly organized with RTQF, IISc Bangalore</p>
             </div>
             <div class="hero-copy">
                 <p class="hero-lede">A day of pre-conference workshops, then two days of keynotes, parallel sessions and posters, hosted by Citadel Lab at IIT Bombay.</p>
