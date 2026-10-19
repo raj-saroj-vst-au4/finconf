@@ -303,7 +303,7 @@ function site_footer(): void {
                 <?= brand() ?>
 
                 <nav class="footer-nav" aria-label="Footer"><?= nav_link('program', 'Programme').nav_link('workshops', 'Workshops').nav_link('keynotes', 'Keynotes').nav_link('papers', 'Call for papers').nav_link('registration', 'Registration').nav_link('venue', 'Venue').nav_link('committees', 'Committees') ?></nav>
-                <p class="footer-meta"><?= e($GLOBALS['conference']) ?>, <?= e($GLOBALS['conference_full']) ?>. 4–6 March 2027, VMCC, IIT Bombay, in collaboration with RTQF, IISc Bangalore.<br>© <?= date('Y') ?> Citadel Lab, IIT Bombay.</p>
+                <p class="footer-meta"><?= e($GLOBALS['conference']) ?>, <?= e($GLOBALS['conference_full']) ?>. 4–6 March 2027, VMCC, IIT Bombay, jointly organized with RTQF, IISc Bangalore.<br>© <?= date('Y') ?> Citadel Lab, IIT Bombay.</p>
             </div>
         </footer>
 <?php
