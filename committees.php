@@ -2,7 +2,7 @@
 require __DIR__.'/includes/site.php';
 
 page_start('committees', 'Committees — QRD 2027, IIT Bombay',
-    'The organising committee, operations team and scientific programme committee of QRD 2027, the International Conference on Quant, Risk and Data at IIT Bombay, 4–6 March 2027.');
+    'The organising committee, operations team, and scientific programme committee of QRD 2027, the Conference on Quant, Risk & Data at IIT Bombay, 4–6 March 2027.');
 ?>
     <section class="page-hero" <?= figure_attrs(2) ?> aria-labelledby="page-title">
         <div class="wrap">
@@ -18,7 +18,8 @@ page_start('committees', 'Committees — QRD 2027, IIT Bombay',
         <div class="wrap">
             <h2 id="team-title">Organising committee</h2>
             <?php if ($faculty): ?><ul class="faculty"><?php foreach ($faculty as $m) echo member($m, 'faculty'); ?></ul><?php endif; ?>
-            <ul class="students"><?php foreach ($students as $m) echo member($m, 'student'); ?></ul>
+            <h2 id="students-title" class="team-group">Student organising committee</h2>
+            <ul class="students" aria-labelledby="students-title"><?php foreach ($students as $m) echo member($m, 'student'); ?></ul>
             <?php if ($operations): ?>
             <h2 id="operations-title" class="team-group">Operations team</h2>
             <ul class="operations" aria-labelledby="operations-title"><?php foreach ($operations as $m) echo member($m, 'staff'); ?></ul>
@@ -32,8 +33,7 @@ page_start('committees', 'Committees — QRD 2027, IIT Bombay',
             <div class="prose">
                 <p>The scientific programme committee reviews every submission to the <a href="<?= e(href('papers')) ?>">call for papers</a> and decides on acceptance and session allocation.</p>
                 <?php if ($programme_committee): ?>
-                <table class="data-table">
-                    <caption><strong>Table 1.</strong> Members of the scientific programme committee.</caption>
+                <table class="data-table" aria-label="Members of the scientific programme committee">
                     <thead><tr><th scope="col">Name</th><th scope="col">Affiliation</th></tr></thead>
                     <tbody>
                         <?php foreach ($programme_committee as $m): ?>

@@ -105,7 +105,10 @@ section h2+.lede{margin-top:28px}
 .hero-title:has(+.hero-sub){margin-bottom:clamp(20px,3vh,32px)}
 .hero-sub{margin-bottom:clamp(32px,5vh,56px)}
 .hero-tagline{font:500 clamp(22px,2.4vw,38px)/1.15 var(--serif);letter-spacing:-.01em}
-.hero-collab{margin-top:10px;font-size:clamp(14px,1.1vw,16px);color:var(--fg-soft)}
+/* 1.5 times the earlier 14–16px; the partner's name is the bold blue link. */
+.hero-collab{width:fit-content;max-width:100%;margin-top:12px;padding:12px 20px;border-left:4px solid var(--cobalt);border-radius:4px;background:#e8edff;font-size:clamp(21px,1.65vw,24px);line-height:1.35;color:var(--ink)}
+.hero-collab a{color:var(--cobalt);font-weight:700;white-space:nowrap;text-decoration-thickness:1px;text-underline-offset:4px}
+.hero-collab a:hover{color:var(--cobalt-deep)}
 .hero-copy{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) auto;gap:32px clamp(32px,4vw,64px);align-items:end;padding-top:28px;border-top:1px solid var(--line)}
 .hero-lede{font-size:clamp(17px,1.35vw,19px);color:var(--fg-soft);max-width:30em}
 .facts{display:grid;gap:10px;margin:0}
@@ -208,6 +211,8 @@ section h2+.lede{margin-top:28px}
 .keynote h3{margin:10px 0 12px;font-size:clamp(30px,3vw,42px);line-height:1.05;letter-spacing:-.012em}
 .keynote p{max-width:34em}
 .keynote-speaker{margin-top:18px;font:italic 400 18px/1.3 var(--serif);color:var(--fg)}
+.speaker-list>.keynote:first-child{margin-top:0;padding-top:0;border-top:0}
+.speaker-list .fine{margin-top:32px}
 .fine{margin-top:40px;font-size:14px;color:var(--fg-soft)}
 
 /* Shared data tables, set like booktabs: rules above and below, none between columns. */
@@ -246,6 +251,15 @@ section h2+.lede{margin-top:28px}
 .prose ol,.prose ul{margin-bottom:0;padding-left:1.4em}
 .prose li+li{margin-top:8px}
 .prose ol[type=a] li::marker{font-style:italic;color:var(--accent)}
+/* Subsections inside one page section, as on the call for papers. */
+.prose h3{margin-top:56px;font-size:clamp(23px,2vw,28px);line-height:1.2}
+.prose>h3:first-child{margin-top:0}
+.prose h3+*,.prose h3+.data-table{margin-top:16px}
+.journal{display:flex;flex-wrap:wrap;gap:24px 40px;align-items:flex-start}
+.journal>div{flex:1 1 20em}
+.journal>div>p+p{margin-top:16px}
+.journal-cover{flex:0 0 auto;width:min(180px,40vw);margin:0}
+.journal-cover img{display:block;width:100%;height:auto;border:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(3,10,60,.45)}
 .facts-list>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);gap:8px 32px;padding:16px 0;border-top:1px solid var(--line)}
 .facts-list>div:first-child{border-top:0;padding-top:0}
 .facts-list>div+div{margin-top:0}
@@ -290,6 +304,7 @@ section h2+.lede{margin-top:28px}
 .member-faculty{grid-template-columns:200px 1fr;align-items:end;max-width:640px;gap:28px}
 .member-faculty h3{font-size:clamp(30px,3vw,40px);line-height:1.05}
 .team .students,.team .operations{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px;margin-top:56px}
+.team .students{grid-template-columns:repeat(6,minmax(0,1fr));margin-top:32px}
 .team-group{margin-top:80px;padding-top:28px;border-top:1px solid var(--line);font:500 clamp(24px,2.2vw,30px)/1.15 var(--serif)}
 .team .operations{margin-top:32px}
 
@@ -340,8 +355,8 @@ body.dialog-open{overflow:hidden}
   .attend-copy{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   .attend-copy .pill{justify-self:start}
 }
-/* Below this width the six links and the Registration button no longer fit beside the brand. */
-@media (max-width:1080px){
+/* Below 1200px the six links ('Venue & contact' is the longest) and the Registration button no longer fit beside the brand. */
+@media (max-width:1199px){
   .nav,.masthead-cta{display:none}
   .menu-button{display:inline-block}
 }
@@ -354,6 +369,7 @@ body.dialog-open{overflow:hidden}
   .contents a{grid-template-columns:1fr}
 }
 @media (max-width:640px){
+  body[data-page=home] .figure-canvas{transform:scale(.8);opacity:.45}
   .span-chart{--day-col:0px}
   .span-row{grid-template-columns:1fr;gap:6px}
   .span-axis span:nth-child(even){display:none}

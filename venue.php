@@ -1,15 +1,16 @@
 <?php
 require __DIR__.'/includes/site.php';
 
-page_start('venue', 'Venue — QRD 2027, IIT Bombay',
-    'The Victor Menezes Convention Centre (VMCC), IIT Bombay, Powai, Mumbai: venue for QRD 2027, the International Conference on Quant, Risk and Data, 4–6 March 2027.');
+page_start('venue', 'Venue & contact — QRD 2027, IIT Bombay',
+    'Venue, accommodation, and contact details for QRD 2027, the Conference on Quant, Risk & Data, 4–6 March 2027 at the Victor Menezes Convention Centre (VMCC), IIT Bombay, Powai, Mumbai.');
 ?>
     <section class="page-hero" <?= figure_attrs(0) ?> aria-labelledby="page-title">
         <div class="wrap">
             <?= page_kicker() ?>
-            <h1 id="page-title" class="page-title" data-split><span class="line">Venue</span></h1>
+            <h1 id="page-title" class="page-title" data-split><span class="line">Venue &amp; contact</span></h1>
             <div class="page-intro">
-                <p class="lede">The conference takes place at the Victor Menezes Convention Centre (VMCC), on the IIT Bombay campus in Powai, Mumbai.</p>
+                <p class="lede">The conference takes place at the Victor Menezes Convention Centre (VMCC), on the IIT Bombay campus in Powai, Mumbai. Below: getting there, accommodation, and how to reach the organisers.</p>
+                <div class="actions"><a class="pill pill-line" href="#stay">Accommodation</a><a class="pill pill-line" href="#contact">Contact</a></div>
             </div>
         </div>
     </section>
@@ -40,12 +41,24 @@ page_start('venue', 'Venue — QRD 2027, IIT Bombay',
         </div>
     </section>
 
-    <section class="page-section" data-quiet aria-labelledby="stay-title">
+    <section id="stay" class="page-section" data-quiet aria-labelledby="stay-title">
         <div class="wrap page-grid">
             <h2 id="stay-title">Accommodation</h2>
             <div class="prose">
-                <p>Accommodation details and nearby hotels will be shared by the organisers. Fees and registration dates are on the <a href="<?= e(href('registration')) ?>">registration</a> page.</p>
+                <p>Accommodation options, including any on-campus accommodation for students and nearby hotels, will be announced by the organisers.</p>
+                <p>Fees and registration dates are on the <a href="<?= e(href('registration')) ?>">registration</a> page.</p>
             </div>
+        </div>
+    </section>
+
+    <section id="contact" class="page-section" data-quiet aria-labelledby="contact-title">
+        <div class="wrap page-grid">
+            <h2 id="contact-title">Contact</h2>
+            <dl class="prose facts-list">
+                <div><dt>Email</dt><dd><a href="mailto:<?= e($contact_email) ?>"><?= e($contact_email) ?></a></dd></div>
+                <div><dt>Write to us about</dt><dd>Any questions or issues: paper and poster submissions, registration and payment, the workshops, travel, or accommodation.</dd></div>
+                <div><dt>Organisers</dt><dd>Citadel Lab, IIT Bombay, jointly with RTQF, IISc Bangalore. See the <a href="<?= e(href('committees')) ?>">committees</a>.</dd></div>
+            </dl>
         </div>
     </section>
 

@@ -2,7 +2,7 @@
 require __DIR__.'/includes/site.php';
 
 page_start('program', 'Programme — QRD 2027, IIT Bombay',
-    'The programme of QRD 2027, the International Conference on Quant, Risk and Data: pre-conference workshops on Thursday 4 March, then keynotes, parallel technical sessions, posters and a panel discussion on 5–6 March 2027 at VMCC, IIT Bombay.');
+    'The programme of QRD 2027, the Conference on Quant, Risk & Data: pre-conference workshops on Thursday 4 March, then keynotes, parallel technical sessions, posters, and a panel discussion on 5–6 March 2027 at VMCC, IIT Bombay.');
 
 // The overview chart runs from 8 AM to 6 PM; each day's agenda is drawn in 5-minute rows from its first slot.
 $chart_from = minutes('08:00');
@@ -44,12 +44,12 @@ $parallel = ['workshop', 'session'];
                 <ul class="span-legend" aria-label="Key">
                     <li><span class="seg seg-keynote"></span>Keynote</li>
                     <li><span class="seg seg-session"></span>Parallel sessions and workshops</li>
-                    <li><span class="seg seg-plenary"></span>Opening, panel and closing</li>
+                    <li><span class="seg seg-plenary"></span>Opening, panel, and closing</li>
                     <li><span class="seg seg-posters"></span>Lunch and posters</li>
                     <li><span class="seg seg-break"></span>Registration and breaks</li>
                 </ul>
             </div>
-            <p class="fine">Each parallel technical session slot and the dedicated paper presentation slot will feature three concurrent sessions conducted in separate halls (Tracks A, B and C). Tea and coffee breaks are included between sessions and during transitions to ensure sufficient time for networking and movement between venues.</p>
+            <p class="fine">Each parallel technical session slot and the dedicated paper presentation slot will feature three concurrent sessions conducted in separate halls (Tracks A, B, and C). Tea and coffee breaks are included between sessions and during transitions to ensure sufficient time for networking and movement between venues.</p>
         </div>
     </section>
 
@@ -95,7 +95,7 @@ $parallel = ['workshop', 'session'];
                     ?>
                     <li class="slot slot-<?= $kind ?>" style="<?= $rows ?>">
                         <p class="slot-head"><span class="slot-time"><?= e(time_range($start, $end)) ?></span> <span class="slot-title"><?php
-                            if ($kind === 'keynote'): ?><a href="<?= e(href('keynotes')) ?>"><?= e($title) ?></a><?php
+                            if ($kind === 'keynote'): ?><a href="<?= e(href('speakers')) ?>#keynotes"><?= e($title) ?></a><?php
                             else: echo e($title); endif; ?></span><?php
                             if ($kind === 'posters'): ?> <a class="slot-link" href="<?= e(href('papers')) ?>#posters">Call for posters</a><?php endif; ?></p>
                         <?php if (in_array($kind, $parallel, true)): ?>

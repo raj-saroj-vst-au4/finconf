@@ -1,0 +1,33 @@
+node_modules/
+test-results/
+playwright-report/
+.DS_Store
+
+# The repository holds only the deployable site: the page files, includes/, and the assets they load.
+# Everything below stays local: build tooling, tests, script sources, and earlier designs.
+
+# Build tooling and tests
+package.json
+package-lock.json
+playwright.config.js
+tailwind.config.js
+scripts/
+tests/
+.claude/
+
+# Script sources (bundled into assets/v2/v2.js by npm run build:v2)
+assets/v2/src/
+
+# Earlier designs and their assets
+bakupindex.php
+version3.php
+assets/css/
+assets/js/
+assets/vendor/
+assets/v3/
+assets/favicon.svg
+assets/fonts/archivo-latin-wdth-normal.woff2
+assets/images/SOURCES.md
+
+# Downloaded archives
+*.zip

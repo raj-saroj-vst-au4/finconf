@@ -4,7 +4,8 @@
 declare(strict_types=1);
 
 $conference = 'QRD 2027';
-$conference_full = 'International Conference on Quant, Risk and Data';
+$conference_full = 'Conference on Quant, Risk & Data';
+$contact_email = 'info@qrdconference.com';   // For any questions or issues; shown on the venue & contact page, the FAQ and the footer
 
 // Links that go live later. Leave empty until they exist: the buttons then explain that
 // submissions or registration have not opened, instead of linking anywhere.
@@ -32,20 +33,20 @@ $workshops = [
 // no lane titles are given). Session titles and speakers will be announced.
 $days = [
     ['label' => 'Day 0', 'date' => 'Thursday 4 March', 'short' => 'Thu 4 Mar', 'theme' => 'Pre-conference workshops',
-        'description' => 'Two workshops run side by side on the same schedule, on high-frequency trading and on derivative pricing. Register for one of them.',
+        'description' => 'Two workshops run side by side on the same schedule, on high-frequency trading and on derivative pricing: lectures from 10 AM to 1 PM, then a hands-on session from 2 PM to 5 PM. Register for one of them.',
         'lanes' => array_map(fn($w) => [$w['track'], $w['title']], $workshops),
         'slots' => [
             ['09:30', '10:00', 'break', 'Registration'],
-            ['10:00', '11:15', 'workshop', 'Workshops, Part I', ['Workshop on High-Frequency Trading (HFT) – Part I', 'Workshop on Derivative Pricing – Part I']],
-            ['11:15', '11:30', 'break', 'Tea / Coffee Break'],
-            ['11:30', '12:30', 'workshop', 'Workshops, Part II', ['Workshop – Part II', 'Workshop – Part II']],
-            ['12:30', '13:30', 'break', 'Lunch Break'],
-            ['13:30', '15:00', 'workshop', 'Hands-on Session', ['Hands-on Session', 'Hands-on Session']],
-            ['15:00', '15:15', 'break', 'Tea / Coffee Break'],
-            ['15:15', '16:00', 'workshop', 'Interactive Discussion & Q&A', ['Interactive Discussion & Q&A', 'Interactive Discussion & Q&A']],
+            ['10:00', '11:30', 'workshop', 'Workshops, Part I', ['Workshop on High-Frequency Trading (HFT) – Part I', 'Workshop on Derivative Pricing – Part I']],
+            ['11:30', '11:45', 'break', 'Tea / Coffee Break'],
+            ['11:45', '13:00', 'workshop', 'Workshops, Part II', ['Workshop – Part II', 'Workshop – Part II']],
+            ['13:00', '14:00', 'break', 'Lunch Break'],
+            ['14:00', '15:30', 'workshop', 'Hands-on Session, Part I', ['Hands-on Session – Part I', 'Hands-on Session – Part I']],
+            ['15:30', '15:45', 'break', 'Tea / Coffee Break'],
+            ['15:45', '17:00', 'workshop', 'Hands-on Session, Part II', ['Hands-on Session – Part II', 'Hands-on Session – Part II']],
         ]],
     ['label' => 'Day 1', 'date' => 'Friday 5 March', 'short' => 'Fri 5 Mar', 'theme' => 'Main conference',
-        'description' => 'The first keynote, four slots of parallel technical sessions, posters over lunch and a panel discussion.',
+        'description' => 'The first keynote, four slots of parallel technical sessions, posters over lunch, and a panel discussion.',
         'lanes' => [['Track A', ''], ['Track B', ''], ['Track C', '']],
         'slots' => [
             ['08:30', '09:15', 'break', 'Registration and Welcome Tea'],
@@ -63,7 +64,7 @@ $days = [
             ['16:30', '17:30', 'plenary', 'Panel Discussion'],
         ]],
     ['label' => 'Day 2', 'date' => 'Saturday 6 March', 'short' => 'Sat 6 Mar', 'theme' => 'Main conference',
-        'description' => 'The second keynote, three slots of parallel technical sessions, posters over lunch, parallel paper presentations and the valedictory session.',
+        'description' => 'The second keynote, three slots of parallel technical sessions, posters over lunch, parallel paper presentations, and the valedictory session.',
         'lanes' => [['Track A', ''], ['Track B', ''], ['Track C', '']],
         'slots' => [
             ['09:00', '09:25', 'break', 'Welcome Tea / Networking'],
@@ -84,11 +85,12 @@ $days = [
 $team = [
     ['role' => 'Faculty chair', 'name' => 'Prof. Sudeep Bapat', 'affiliation' => 'Citadel Lab, IIT Bombay', 'email' => '', 'photo' => 'assets/images/team/sudeep-bapat.svg'],
     ['role' => 'Faculty co-chair', 'name' => 'Prof. Piyush Pandey', 'affiliation' => 'SJMSOM, IIT Bombay', 'email' => '', 'photo' => 'assets/images/team/piyush-pandey.svg'],
-    ['role' => 'Student coordinator', 'name' => 'Ashish Kela', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/ashish-kela.svg'],
     ['role' => 'Student coordinator', 'name' => 'Aryan Bhambu', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/aryan-bhambu.svg'],
     ['role' => 'Student coordinator', 'name' => 'Anshul Pawaskar', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/anshul-pawaskar.svg'],
     ['role' => 'Student coordinator', 'name' => 'Keshav Kumar', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/keshav-kumar.svg'],
     ['role' => 'Student coordinator', 'name' => 'Jyoti Pandey', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/jyoti-pandey.svg'],
+    ['role' => 'Student coordinator', 'name' => 'Koushik Bera', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/koushik-bera.svg'],
+    ['role' => 'Student coordinator', 'name' => 'Salam Rabindrajit Luwang', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/salam-rabindrajit-luwang.svg'],
 ];
 $faculty = array_values(array_filter($team, fn($m) => str_starts_with($m['role'], 'Faculty')));
 $students = array_values(array_filter($team, fn($m) => !str_starts_with($m['role'], 'Faculty')));
@@ -99,17 +101,21 @@ $operations = [
     ['role' => 'Tech staff', 'name' => 'Raj Saroj', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/raj-saroj.svg'],
 ];
 
+// Invited speakers from academia and industry: ['name' => '', 'affiliation' => '', 'talk' => '']. Empty until announced.
+$academia_speakers = [];
+$industry_speakers = [];
+
 // Scientific programme committee: ['name' => '', 'affiliation' => '']. Empty until members are announced.
 $programme_committee = [];
 
 // Conference themes, on the home page and as the call for papers' topics: the title, then the research areas it covers.
 $themes = [
-    ['Stochastic Modelling, Derivative Markets and Financial Engineering', 'Stochastic calculus, derivative valuation, rough volatility, structured products, pricing techniques.'],
-    ['Financial Econometrics, Statistical Learning and Time Series Analysis', 'Econometric forecasting, volatility estimation, high-dimensional statistics, causal inference, regime switching, time series.'],
+    ['Stochastic Modelling, Derivative Markets, and Financial Engineering', 'Stochastic calculus, derivative valuation, rough volatility, structured products, pricing techniques.'],
+    ['Financial Econometrics, Statistical Learning, and Time Series Analysis', 'Econometric forecasting, volatility estimation, high-dimensional statistics, causal inference, regime switching, time series.'],
     ['Market Microstructure, High-Frequency and Quantitative Trading', 'Order book dynamics, market making, liquidity modelling, execution strategies, algorithmic trading.'],
-    ['Portfolio Optimisation, Asset Pricing and Quantitative Investment Strategies', 'Factor investing, asset allocation, robust portfolios, systematic investing, stochastic optimisation, investment decision-making.'],
+    ['Portfolio Optimisation, Asset Pricing, and Quantitative Investment Strategies', 'Factor investing, asset allocation, robust portfolios, systematic investing, stochastic optimisation, investment decision-making.'],
     ['Computational Intelligence and High-Performance Computing in Finance', 'Deep learning, LLMs, reinforcement learning, Monte Carlo methods, GPU computing, quantum finance.'],
-    ['Risk Modelling, Financial Stability and Emerging Market Dynamics', 'Tail risk, systemic risk, financial regulation, Indian markets, climate finance, FinTech and digital assets.'],
+    ['Risk Modelling, Financial Stability, and Emerging Market Dynamics', 'Tail risk, systemic risk, financial regulation, Indian markets, climate finance, FinTech, and digital assets.'],
 ];
 // Deadlines and important dates. Pages pick the rows they need by key.
 $dates = [
@@ -136,7 +142,9 @@ $advice = [
 // Call for poster presentations.
 $poster_guidelines = [
     'Structured research abstract: 350–500 words.',
-    'The abstract must include the research problem, objectives, methodology, key findings and original contribution.',
+    'Posters must be prepared in A0 size, in portrait orientation.',
+    'Previously published papers may be presented as posters (but not as contributed talks).',
+    'The abstract must include the research problem, objectives, methodology, key findings, and original contribution.',
     'Preliminary or completed research results are expected.',
     'Submissions will undergo scientific review by the conference committee.',
     'Accepted posters will be presented during designated poster sessions, over lunch on Days 1 and 2.',
@@ -149,8 +157,11 @@ $poster_dates = [
     ['Conference', '4–6 March 2027'],
 ];
 
-// Journal special issue announced with the call for papers.
+// Journal to which selected conference papers are fast-tracked (there is no special issue). Set $journal_cover to
+// the journal's title page image (for example 'assets/images/asmbi-cover.jpg') to show it on the call for papers.
+$journal_name = 'Applied Stochastic Models in Business and Industry';
 $journal_url = 'https://wiley.atyponrex.com/journal/ASMB';
+$journal_cover = '';
 
 // Registration fees: [category, early bird, regular]. Main conference days and oral paper presentations.
 $fees = [
@@ -174,11 +185,12 @@ $workshop_fees = [
 ];
 
 $faq = [
-    ['Who is the conference for?', 'Researchers, students and practitioners working on quantitative finance, risk and data: from stochastic modelling and financial econometrics to market microstructure, portfolio optimisation and computational finance.'],
+    ['Who is the conference for?', 'Researchers, students, and practitioners working on quantitative finance, risk, and data: from stochastic modelling and financial econometrics to market microstructure, portfolio optimisation, and computational finance.'],
     ['When and where is it?', 'Pre-conference workshops on Thursday 4 March, then the main conference on Friday 5 and Saturday 6 March 2027, at the Victor Menezes Convention Centre (VMCC), IIT Bombay, Mumbai.'],
-    ['How do I submit a paper or a poster?', 'Through the Google Forms linked from the call for papers page. Conference papers are due by 20 December 2026 and poster abstracts by 15 January 2027.'],
+    ['How do I submit a paper or a poster?', 'Through the Google Forms linked from the call for papers page. Upload conference papers as a PDF by 20 December 2026; poster abstracts are due by 15 January 2027.'],
     ['How do I register?', 'Registration has not opened yet. Fees and deadlines are on the registration page: early-bird registration closes on 10 February 2027 and regular registration on 25 February 2027.'],
-    ['What will the programme include?', 'Two pre-conference workshops on Day 0, on high-frequency trading and derivative pricing. Then two days with two keynote addresses, 21 parallel technical sessions, parallel paper presentations, poster sessions over lunch, a panel discussion and a valedictory session. Session titles and speakers will be announced.'],
+    ['What will the programme include?', 'Two pre-conference workshops on Day 0, on high-frequency trading and derivative pricing. Then two days with two keynote addresses, 21 parallel technical sessions, parallel paper presentations, poster sessions over lunch, a panel discussion, and a valedictory session. Session titles and speakers will be announced.'],
+    ['Who do I contact with questions?', 'Email info@qrdconference.com for any questions or issues about submissions, registration, the workshops, or your visit.'],
 ];
 
 /* Rendering helpers */
@@ -226,10 +238,10 @@ $pages = [
     'home' => ['Home', 'index.php'],
     'program' => ['Programme', 'programme.php'],
     'workshops' => ['Workshops', 'workshops.php'],
-    'keynotes' => ['Keynotes', 'keynotes.php'],
+    'speakers' => ['Speakers', 'speakers.php'],
     'papers' => ['Call for papers', 'call-for-papers.php'],
     'registration' => ['Registration', 'registration.php'],
-    'venue' => ['Venue', 'venue.php'],
+    'venue' => ['Venue & contact', 'venue.php'],
     'committees' => ['Committees', 'committees.php'],
 ];
 $current_page = 'home';
@@ -262,7 +274,7 @@ function brand(): string {
 function page_start(string $page, string $title, string $description): void {
     global $current_page;
     $current_page = $page;
-    $links = nav_link('program', 'Programme').nav_link('workshops', 'Workshops').nav_link('keynotes', 'Keynotes').nav_link('papers', 'Call for papers').nav_link('venue', 'Venue').nav_link('committees', 'Committees');
+    $links = nav_link('program', 'Programme').nav_link('workshops', 'Workshops').nav_link('speakers', 'Speakers').nav_link('papers', 'Call for papers').nav_link('venue', 'Venue & contact').nav_link('committees', 'Committees');
     ?>
 <!doctype html>
 <html lang="en" class="no-js">
@@ -302,8 +314,8 @@ function site_footer(): void {
             <div class="wrap footer-grid">
                 <?= brand() ?>
 
-                <nav class="footer-nav" aria-label="Footer"><?= nav_link('program', 'Programme').nav_link('workshops', 'Workshops').nav_link('keynotes', 'Keynotes').nav_link('papers', 'Call for papers').nav_link('registration', 'Registration').nav_link('venue', 'Venue').nav_link('committees', 'Committees') ?></nav>
-                <p class="footer-meta"><?= e($GLOBALS['conference']) ?>, <?= e($GLOBALS['conference_full']) ?>. 4–6 March 2027, VMCC, IIT Bombay, jointly organized with RTQF, IISc Bangalore.<br>© <?= date('Y') ?> Citadel Lab, IIT Bombay.</p>
+                <nav class="footer-nav" aria-label="Footer"><?= nav_link('program', 'Programme').nav_link('workshops', 'Workshops').nav_link('speakers', 'Speakers').nav_link('papers', 'Call for papers').nav_link('registration', 'Registration').nav_link('venue', 'Venue & contact').nav_link('committees', 'Committees') ?></nav>
+                <p class="footer-meta"><?= e($GLOBALS['conference']) ?>, <?= e($GLOBALS['conference_full']) ?>. 4–6 March 2027, VMCC, IIT Bombay, jointly organized with RTQF, IISc Bangalore.<br>Questions or issues? Email <a href="mailto:<?= e($GLOBALS['contact_email']) ?>"><?= e($GLOBALS['contact_email']) ?></a>.<br>© <?= date('Y') ?> Citadel Lab, IIT Bombay.</p>
             </div>
         </footer>
 <?php
@@ -324,7 +336,7 @@ function page_end(string $templates = ''): void {
 // Shared dialog copy for links that are not live yet.
 function dialog_templates(string ...$names): string {
     $copy = [
-        'submission' => '<template id="dialog-submission"><p class="dialog-kicker">Call for papers</p><h2 id="dialog-title">The submission form is not open yet.</h2><p>Papers for contributed talks and posters are submitted through a Google Form. The organisers will link it here and announce the deadline.</p><p class="dialog-note">You can prepare now: post your paper on arXiv and publish your code in a public repository, so you can share both links when the form opens.</p></template>',
+        'submission' => '<template id="dialog-submission"><p class="dialog-kicker">Call for papers</p><h2 id="dialog-title">The submission form is not open yet.</h2><p>Papers for contributed talks and posters are submitted through a Google Form. The organisers will link it here and announce the deadline.</p><p class="dialog-note">You can prepare now: have your paper ready as a PDF to upload when the form opens.</p></template>',
         'registration' => '<template id="dialog-registration"><p class="dialog-kicker">4–6 March 2027, VMCC, IIT Bombay</p><h2 id="dialog-title">Registration has not opened yet.</h2><p>Fees are on the registration page. The registration link and dates will be announced there by the organisers.</p><p class="dialog-note">No booking or payment is available on this site yet.</p></template>',
     ];
     return implode("\n", array_map(fn($name) => $copy[$name], $names));
