@@ -6,7 +6,6 @@ page_start('venue', 'Venue & contact — QRD 2027, IIT Bombay',
 ?>
     <section class="page-hero" <?= figure_attrs(0) ?> aria-labelledby="page-title">
         <div class="wrap">
-            <?= page_kicker() ?>
             <h1 id="page-title" class="page-title" data-split><span class="line">Venue &amp; contact</span></h1>
             <div class="page-intro">
                 <p class="lede">The conference takes place at the Victor Menezes Convention Centre (VMCC), on the IIT Bombay campus in Powai, Mumbai. Below: getting there, accommodation, and how to reach the organisers.</p>

@@ -7,7 +7,6 @@ page_start('workshops', 'Workshops — QRD 2027, IIT Bombay',
 ?>
     <section class="page-hero" <?= figure_attrs(1) ?> aria-labelledby="page-title">
         <div class="wrap">
-            <?= page_kicker() ?>
             <h1 id="page-title" class="page-title" data-split><span class="line">Workshops</span></h1>
             <div class="page-intro">
                 <p class="lede">Two pre-conference workshops open QRD 2027 on Thursday 4 March, one on high-frequency trading and one on derivative pricing. They run side by side on the same schedule, so register for one of them.</p>

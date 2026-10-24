@@ -6,7 +6,6 @@ page_start('registration', 'Registration — QRD 2027, IIT Bombay',
 ?>
     <section class="page-hero" <?= figure_attrs(3) ?> aria-labelledby="page-title">
         <div class="wrap">
-            <?= page_kicker() ?>
             <h1 id="page-title" class="page-title" data-split><span class="line">Registration</span></h1>
             <div class="page-intro">
                 <p class="lede"><?= $registration_url === '' ? 'Registration has not opened yet. Fees and deadlines are below; the registration link will be added here when registration opens.' : 'Registration is open. Check the fees and key dates below, then register through the link.' ?></p>

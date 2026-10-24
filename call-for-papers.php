@@ -6,7 +6,6 @@ page_start('papers', 'Call for papers — QRD 2027, IIT Bombay',
 ?>
     <section class="page-hero" <?= figure_attrs(2) ?> aria-labelledby="page-title">
         <div class="wrap">
-            <?= page_kicker() ?>
             <h1 id="page-title" class="page-title" data-split><span class="line">Call for papers</span></h1>
             <div class="page-intro">
                 <p class="lede">Present your research as a contributed talk or a poster at QRD 2027, the Conference on Quant, Risk &amp; Data. Conference papers are due by 20 December 2026; poster abstracts by 15 January 2027.</p>

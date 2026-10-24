@@ -12,7 +12,6 @@ function speaker(array $s): string {
 ?>
     <section class="page-hero" <?= figure_attrs(2) ?> aria-labelledby="page-title">
         <div class="wrap">
-            <?= page_kicker() ?>
             <h1 id="page-title" class="page-title" data-split><span class="line">Speakers</span></h1>
             <div class="page-intro">
                 <p class="lede">Two keynote addresses frame the conference, alongside invited speakers from academia and industry.</p>

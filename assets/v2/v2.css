@@ -231,8 +231,6 @@ section h2+.lede{margin-top:28px}
 
 /* Inner pages: a shorter hero, then sections with the heading beside the text. */
 .page-hero{min-height:74vh;display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--header) + 48px) 0 clamp(48px,8vh,96px)}
-.page-kicker{display:flex;flex-wrap:wrap;gap:4px 12px;margin-bottom:clamp(16px,3vh,28px);font-size:15px;color:var(--fg-soft)}
-.page-kicker span{font-weight:600;color:var(--accent)}
 .page-title{font-size:clamp(58px,9.5vw,152px);line-height:.9;letter-spacing:-.035em;font-weight:500;perspective:900px;perspective-origin:30% 50%}
 .page-title .line{display:block}
 .page-intro{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 48px;margin-top:clamp(32px,5vh,56px);padding-top:28px;border-top:1px solid var(--line)}

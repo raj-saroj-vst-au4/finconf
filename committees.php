@@ -6,7 +6,6 @@ page_start('committees', 'Committees — QRD 2027, IIT Bombay',
 ?>
     <section class="page-hero" <?= figure_attrs(2) ?> aria-labelledby="page-title">
         <div class="wrap">
-            <?= page_kicker() ?>
             <h1 id="page-title" class="page-title" data-split><span class="line">Committees</span></h1>
             <div class="page-intro">
                 <p class="lede">The people organising the conference at Citadel Lab, IIT Bombay, and the committee reviewing its papers.</p>

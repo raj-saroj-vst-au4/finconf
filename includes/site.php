@@ -85,6 +85,7 @@ $days = [
 $team = [
     ['role' => 'Faculty chair', 'name' => 'Prof. Sudeep Bapat', 'affiliation' => 'Citadel Lab, IIT Bombay', 'email' => '', 'photo' => 'assets/images/team/sudeep-bapat.svg'],
     ['role' => 'Faculty co-chair', 'name' => 'Prof. Piyush Pandey', 'affiliation' => 'SJMSOM, IIT Bombay', 'email' => '', 'photo' => 'assets/images/team/piyush-pandey.svg'],
+    ['role' => 'Faculty member', 'name' => 'Prof. Shashi Ranjan Kumar', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/shashi-ranjan-kumar.svg'],
     ['role' => 'Student coordinator', 'name' => 'Aryan Bhambu', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/aryan-bhambu.svg'],
     ['role' => 'Student coordinator', 'name' => 'Anshul Pawaskar', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/anshul-pawaskar.svg'],
     ['role' => 'Student coordinator', 'name' => 'Keshav Kumar', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/keshav-kumar.svg'],
@@ -256,12 +257,6 @@ function nav_link(string $page, string $label, string $anchor = ''): string {
     global $current_page;
     $current = $anchor === '' && $page === $current_page ? ' aria-current="page"' : '';
     return '<a href="'.e(href($page, $anchor)).'"'.$current.'>'.e($label).'</a>';
-}
-
-// The conference name above each inner page's title.
-function page_kicker(): string {
-    global $conference, $conference_full;
-    return '<p class="page-kicker"><span>'.e($conference).'</span> '.e($conference_full).'</p>';
 }
 
 function brand(): string {
