@@ -42,7 +42,6 @@ page_start('papers', 'Call for papers — QRD 2027, IIT Bombay',
                 <div class="journal">
                     <div>
                         <p>Selected papers will be fast-tracked for publication in the journal <a href="<?= e($journal_url) ?>" target="_blank" rel="noopener noreferrer"><cite><?= e($journal_name) ?></cite> (ASMBI)<span class="visually-hidden"> (opens in a new tab)</span></a>, with minimal final review requirements.</p>
-                        <p>There is no special issue: papers are selected from those presented at the conference.</p>
                     </div>
                     <?php if ($journal_cover !== '' && is_file(__DIR__.'/'.$journal_cover)): ?>
                     <figure class="journal-cover"><a href="<?= e($journal_url) ?>" target="_blank" rel="noopener noreferrer"><img src="<?= e($journal_cover) ?>" alt="Title page of <?= e($journal_name) ?>" loading="lazy" decoding="async"><span class="visually-hidden"> (opens in a new tab)</span></a></figure>
@@ -60,7 +59,7 @@ page_start('papers', 'Call for papers — QRD 2027, IIT Bombay',
                 <ol>
                     <li>Prepare your paper as a PDF.</li>
                     <li>If your work uses code, publish it on GitHub or another public repository, and give the link in the paper.</li>
-                    <li>Upload the PDF through the Google Form by 20 December 2026.</li>
+                    <li>Upload the PDF through the Google Form.</li>
                 </ol>
                 <div class="actions"><?= action_button($submission_form_url, 'Submit a paper', 'submission') ?></div>
                 <p class="fine"><?= $submission_form_url === '' ? 'The submission form opens when the call is announced.' : 'The Google Form opens in a new tab. Deadline: 20 December 2026.' ?></p>
@@ -91,7 +90,7 @@ page_start('papers', 'Call for papers — QRD 2027, IIT Bombay',
             <h2 id="posters-title">Poster presentation</h2>
             <div class="prose">
                 <p>The Organising Committee invites researchers, academicians, doctoral scholars, postgraduate students, and industry professionals to submit original research abstracts for poster presentations.</p>
-                <p>Poster submissions are welcome across all conference themes, including mathematical finance, financial econometrics, market microstructure, quantitative trading, portfolio optimisation, risk management, and computational intelligence in finance.</p>
+                <p>Poster submissions are welcome across all conference themes, including mathematical finance, financial econometrics, market microstructure, quantitative trading, portfolio optimisation, risk management, and computational intelligence in finance. Presenters are required to bring a printed copy of their poster to the conference.</p>
                 <div class="actions"><?= action_button($poster_form_url, 'Submit a poster abstract', 'submission') ?></div>
 
                 <h3>Guidelines</h3>

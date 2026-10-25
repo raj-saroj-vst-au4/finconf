@@ -1,12 +1,12 @@
 <?php
 require __DIR__.'/includes/site.php';
 
-page_start('venue', 'Venue & contact — QRD 2027, IIT Bombay',
+page_start('venue', 'Venue & Contact — QRD 2027, IIT Bombay',
     'Venue, accommodation, and contact details for QRD 2027, the Conference on Quant, Risk & Data, 4–6 March 2027 at the Victor Menezes Convention Centre (VMCC), IIT Bombay, Powai, Mumbai.');
 ?>
     <section class="page-hero" <?= figure_attrs(0) ?> aria-labelledby="page-title">
         <div class="wrap">
-            <h1 id="page-title" class="page-title" data-split><span class="line">Venue &amp; contact</span></h1>
+            <h1 id="page-title" class="page-title" data-split><span class="line">Venue &amp; Contact</span></h1>
             <div class="page-intro">
                 <p class="lede">The conference takes place at the Victor Menezes Convention Centre (VMCC), on the IIT Bombay campus in Powai, Mumbai. Below: getting there, accommodation, and how to reach the organisers.</p>
                 <div class="actions"><a class="pill pill-line" href="#stay">Accommodation</a><a class="pill pill-line" href="#contact">Contact</a></div>

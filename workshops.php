@@ -71,7 +71,7 @@ page_start('workshops', 'Workshops — QRD 2027, IIT Bombay',
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <p class="fine">The full conference schedule is in the <a href="<?= e(href('program')) ?>#day-0">programme</a>.</p>
+                <p class="fine">The full conference schedule is in the <a href="<?= e(href('program')) ?>#day-1">programme</a>.</p>
             </div>
         </div>
     </section>
@@ -89,7 +89,7 @@ page_start('workshops', 'Workshops — QRD 2027, IIT Bombay',
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <p class="fine">Conference and poster fees and deadlines are on the <a href="<?= e(href('registration')) ?>">registration</a> page; accommodation is on the <a href="<?= e(href('venue')) ?>">venue &amp; contact</a> page.</p>
+                <p class="fine">All fees are exclusive of GST. Conference and poster fees and deadlines are on the <a href="<?= e(href('registration')) ?>">registration</a> page; accommodation is on the <a href="<?= e(href('venue')) ?>">Venue &amp; Contact</a> page.</p>
             </div>
         </div>
     </section>

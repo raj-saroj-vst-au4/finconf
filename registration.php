@@ -28,7 +28,7 @@ page_start('registration', 'Registration — QRD 2027, IIT Bombay',
         <div class="wrap page-grid">
             <h2 id="fees-title">Conference fees</h2>
             <div class="prose">
-                <p>These rates cover the two main conference days and oral paper presentations.</p>
+                <p>These rates cover the two main conference days and oral paper presentations. All fees are exclusive of GST.</p>
                 <table class="data-table" aria-label="Conference registration fees by category">
                     <thead><tr><th scope="col">Category</th><th scope="col">Early bird</th><th scope="col">Regular</th></tr></thead>
                     <tbody>
@@ -54,6 +54,7 @@ page_start('registration', 'Registration — QRD 2027, IIT Bombay',
                     </tbody>
                 </table>
                 <p><strong>Important:</strong> poster registration includes entry to both main conference days, lunch, refreshments, and a participation/presentation certificate. Participants already registered for the main conference should <strong>not</strong> pay an additional poster fee.</p>
+                <p class="fine">Presenters are required to bring a printed copy of their poster to the conference.</p>
             </div>
         </div>
     </section>
@@ -62,7 +63,7 @@ page_start('registration', 'Registration — QRD 2027, IIT Bombay',
         <div class="wrap page-grid">
             <h2 id="workshop-fees-title">Workshop fees</h2>
             <div class="prose">
-                <p>The pre-conference <a href="<?= e(href('workshops')) ?>">HFT and Derivative Pricing workshops</a> on Day 0 (Thursday 4 March) will run simultaneously. Participants should register for <strong>one workshop only</strong>.</p>
+                <p>The pre-conference <a href="<?= e(href('workshops')) ?>">HFT and Derivative Pricing workshops</a> on Day 1 (Thursday 4 March) will run simultaneously. Participants should register for <strong>one workshop only</strong>.</p>
                 <table class="data-table" aria-label="Pre-conference workshop fees by category">
                     <thead><tr><th scope="col">Category</th><th scope="col">Workshop only</th></tr></thead>
                     <tbody>

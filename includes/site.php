@@ -20,19 +20,19 @@ function figure_attrs(int $index): string {
     return 'data-figure="'.$index.'"';
 }
 
-// Pre-conference workshops (Day 0), on the workshops page and as Day 0's lanes in the programme. Fill in
+// Pre-conference workshops (Day 1), on the workshops page and as Day 1's lanes in the programme. Fill in
 // 'instructors' and 'outline' (a list of topics) when announced; until then the page shows them as to be announced.
 $workshops = [
     ['track' => 'Track A', 'title' => 'High-Frequency Trading (HFT)', 'instructors' => '', 'outline' => []],
     ['track' => 'Track B', 'title' => 'Derivative Pricing', 'instructors' => '', 'outline' => []],
 ];
 
-// Programme. Day 0 is the pre-conference workshops; days 1 and 2 are the main conference.
+// Programme. Day 1 is the pre-conference workshops; days 2 and 3 are the main conference.
 // Each slot is [start, end, kind, title, lane titles]. Times are 24-hour. Kinds: 'break', 'plenary', 'keynote' and
 // 'posters' span the whole room; 'workshop' and 'session' run in parallel, one block per lane (the lane's name when
 // no lane titles are given). Session titles and speakers will be announced.
 $days = [
-    ['label' => 'Day 0', 'date' => 'Thursday 4 March', 'short' => 'Thu 4 Mar', 'theme' => 'Pre-conference workshops',
+    ['label' => 'Day 1', 'date' => 'Thursday 4 March', 'short' => 'Thu 4 Mar', 'theme' => 'Pre-conference workshops',
         'description' => 'Two workshops run side by side on the same schedule, on high-frequency trading and on derivative pricing: lectures from 10 AM to 1 PM, then a hands-on session from 2 PM to 5 PM. Register for one of them.',
         'lanes' => array_map(fn($w) => [$w['track'], $w['title']], $workshops),
         'slots' => [
@@ -45,7 +45,7 @@ $days = [
             ['15:30', '15:45', 'break', 'Tea / Coffee Break'],
             ['15:45', '17:00', 'workshop', 'Hands-on Session, Part II', ['Hands-on Session – Part II', 'Hands-on Session – Part II']],
         ]],
-    ['label' => 'Day 1', 'date' => 'Friday 5 March', 'short' => 'Fri 5 Mar', 'theme' => 'Main conference',
+    ['label' => 'Day 2', 'date' => 'Friday 5 March', 'short' => 'Fri 5 Mar', 'theme' => 'Main conference',
         'description' => 'The first keynote, four slots of parallel technical sessions, posters over lunch, and a panel discussion.',
         'lanes' => [['Track A', ''], ['Track B', ''], ['Track C', '']],
         'slots' => [
@@ -63,7 +63,7 @@ $days = [
             ['16:15', '16:30', 'break', 'Tea / Coffee Break'],
             ['16:30', '17:30', 'plenary', 'Panel Discussion'],
         ]],
-    ['label' => 'Day 2', 'date' => 'Saturday 6 March', 'short' => 'Sat 6 Mar', 'theme' => 'Main conference',
+    ['label' => 'Day 3', 'date' => 'Saturday 6 March', 'short' => 'Sat 6 Mar', 'theme' => 'Main conference',
         'description' => 'The second keynote, three slots of parallel technical sessions, posters over lunch, parallel paper presentations, and the valedictory session.',
         'lanes' => [['Track A', ''], ['Track B', ''], ['Track C', '']],
         'slots' => [
@@ -81,24 +81,26 @@ $days = [
             ['17:00', '17:30', 'plenary', 'Valedictory Session & Closing Remarks'],
         ]],
 ];
-// Organising committee. Replace the placeholder SVGs in assets/images/team/ with real photos.
+// Organising committee. 'url' links the photo and name to a profile page; leave it empty until there is one.
+// Replace the placeholder SVGs in assets/images/team/ with real photos (same file name, or update 'photo').
+// In 'affiliation', a semicolon starts a new line.
 $team = [
-    ['role' => 'Faculty chair', 'name' => 'Prof. Sudeep Bapat', 'affiliation' => 'Citadel Lab, IIT Bombay', 'email' => '', 'photo' => 'assets/images/team/sudeep-bapat.svg'],
-    ['role' => 'Faculty co-chair', 'name' => 'Prof. Piyush Pandey', 'affiliation' => 'SJMSOM, IIT Bombay', 'email' => '', 'photo' => 'assets/images/team/piyush-pandey.svg'],
-    ['role' => 'Faculty member', 'name' => 'Prof. Shashi Ranjan Kumar', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/shashi-ranjan-kumar.svg'],
-    ['role' => 'Student coordinator', 'name' => 'Aryan Bhambu', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/aryan-bhambu.svg'],
-    ['role' => 'Student coordinator', 'name' => 'Anshul Pawaskar', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/anshul-pawaskar.svg'],
-    ['role' => 'Student coordinator', 'name' => 'Keshav Kumar', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/keshav-kumar.svg'],
-    ['role' => 'Student coordinator', 'name' => 'Jyoti Pandey', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/jyoti-pandey.svg'],
-    ['role' => 'Student coordinator', 'name' => 'Koushik Bera', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/koushik-bera.svg'],
-    ['role' => 'Student coordinator', 'name' => 'Salam Rabindrajit Luwang', 'affiliation' => 'Citadel Lab', 'email' => '', 'photo' => 'assets/images/team/salam-rabindrajit-luwang.svg'],
+    ['role' => 'Faculty Chair', 'name' => 'Prof. Sudeep R. Bapat', 'affiliation' => 'PIC, IITB-Citadel Securities Quantitative Research Lab; Assistant Professor, SJMSOM', 'email' => '', 'url' => 'https://sites.google.com/view/srbapat/home', 'photo' => 'assets/images/team/sudeep-bapat.jpg'],
+    ['role' => 'Faculty Co-Chair', 'name' => 'Prof. Piyush Pandey', 'affiliation' => 'Assistant Professor, SJMSOM', 'email' => '', 'url' => 'https://sites.google.com/iitb.ac.in/prof-piyush-pandey/home', 'photo' => 'assets/images/team/piyush-pandey.jpg'],
+    ['role' => 'Faculty member', 'name' => 'Prof. Shashi Jain', 'affiliation' => 'Associate Professor, Department of Management Studies, IISc Bangalore', 'email' => '', 'url' => 'https://scholar.google.com/citations?user=TA9NeywAAAAJ&hl=en', 'photo' => 'assets/images/team/shashi-jain.svg'],
+    ['role' => 'Student coordinator', 'name' => 'Aryan Bhambu', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://github.com/aryanbhambu', 'photo' => 'assets/images/team/aryan-bhambu.jpg'],
+    ['role' => 'Student coordinator', 'name' => 'Anshul Pawaskar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/anshul-pawaskar.jpg'],
+    ['role' => 'Student coordinator', 'name' => 'Keshav Kumar', 'affiliation' => '', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/keshav-kumar.svg'],
+    ['role' => 'Student coordinator', 'name' => 'Jyoti Pandey', 'affiliation' => '', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/jyoti-pandey.svg'],
+    ['role' => 'Student coordinator', 'name' => 'Koushik Bera', 'affiliation' => '', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/koushik-bera.svg'],
+    ['role' => 'Student coordinator', 'name' => 'Salam Rabindrajit Luwang', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://srabindrajitluwang.github.io/index.html', 'photo' => 'assets/images/team/salam-rabindrajit-luwang.jpg'],
 ];
 $faculty = array_values(array_filter($team, fn($m) => str_starts_with($m['role'], 'Faculty')));
 $students = array_values(array_filter($team, fn($m) => !str_starts_with($m['role'], 'Faculty')));
 
 $operations = [
-    ['role' => 'Manager', 'name' => 'Ms. Varsha Manne', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/varsha-manne.svg'],
-    ['role' => 'Admin staff', 'name' => 'Salman Shaikh', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/salman-shaikh.svg'],
+    ['role' => 'Manager', 'name' => 'Ms. Varsha Manne', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/varsha-manne.jpg'],
+    ['role' => 'Admin staff', 'name' => 'Salman Shaikh', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/salman-shaikh.jpg'],
     ['role' => 'Tech staff', 'name' => 'Raj Saroj', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/raj-saroj.svg'],
 ];
 
@@ -148,7 +150,7 @@ $poster_guidelines = [
     'The abstract must include the research problem, objectives, methodology, key findings, and original contribution.',
     'Preliminary or completed research results are expected.',
     'Submissions will undergo scientific review by the conference committee.',
-    'Accepted posters will be presented during designated poster sessions, over lunch on Days 1 and 2.',
+    'Accepted posters will be presented during designated poster sessions, over lunch on Days 2 and 3.',
     'Selected posters may be considered for Best Poster Presentation Awards.',
 ];
 $poster_dates = [
@@ -162,22 +164,22 @@ $poster_dates = [
 // the journal's title page image (for example 'assets/images/asmbi-cover.jpg') to show it on the call for papers.
 $journal_name = 'Applied Stochastic Models in Business and Industry';
 $journal_url = 'https://wiley.atyponrex.com/journal/ASMB';
-$journal_cover = '';
+$journal_cover = 'assets/images/asmbi-cover.jpg';   // shown once the file exists
 
 // Registration fees: [category, early bird, regular]. Main conference days and oral paper presentations.
 $fees = [
-    ['UG / PG / PhD Scholars', '₹2,000', '₹2,500'],
-    ['Faculty / Academicians / Postdoctoral Researchers', '₹5,000', '₹6,500'],
-    ['Industry Professionals', '₹8,000', '₹10,000'],
-    ['International Students/Professionals', '$180', '$220'],
+    ['UG / PG / PhD Scholars', '₹2,500', '₹3,000'],
+    ['Faculty / Academicians / Postdoctoral Researchers', '₹3,500', '₹4,000'],
+    ['Industry Professionals', '₹5,000', '₹6,000'],
+    ['International Students/Professionals', '$80', '$100'],
 ];
 // Poster presentation registration: [category, early bird, regular]. Not charged on top of conference registration.
 $poster_fees = [
-    ['UG / PG / PhD Scholars', '₹1,500', '₹2,000'],
+    ['UG / PG / PhD Scholars', '₹2,000', '₹2,500'],
     ['Faculty / Academicians / Postdoctoral Researchers', '₹3,000', '₹3,500'],
-    ['International Poster Presenters', '$75', '$100'],
+    ['International Poster Presenters', '$70', '$90'],
 ];
-// Pre-conference workshop fees (Day 0): [category, fee for one workshop].
+// Pre-conference workshop fees (Day 1): [category, fee for one workshop].
 $workshop_fees = [
     ['UG / PG / PhD Scholars', '₹800'],
     ['Faculty / Academicians / Postdoctoral Researchers', '₹1,500'],
@@ -190,7 +192,7 @@ $faq = [
     ['When and where is it?', 'Pre-conference workshops on Thursday 4 March, then the main conference on Friday 5 and Saturday 6 March 2027, at the Victor Menezes Convention Centre (VMCC), IIT Bombay, Mumbai.'],
     ['How do I submit a paper or a poster?', 'Through the Google Forms linked from the call for papers page. Upload conference papers as a PDF by 20 December 2026; poster abstracts are due by 15 January 2027.'],
     ['How do I register?', 'Registration has not opened yet. Fees and deadlines are on the registration page: early-bird registration closes on 10 February 2027 and regular registration on 25 February 2027.'],
-    ['What will the programme include?', 'Two pre-conference workshops on Day 0, on high-frequency trading and derivative pricing. Then two days with two keynote addresses, 21 parallel technical sessions, parallel paper presentations, poster sessions over lunch, a panel discussion, and a valedictory session. Session titles and speakers will be announced.'],
+    ['What will the programme include?', 'Two pre-conference workshops on Day 1, on high-frequency trading and derivative pricing. Then two days with two keynote addresses, 21 parallel technical sessions, parallel paper presentations, poster sessions over lunch, a panel discussion, and a valedictory session. Session titles and speakers will be announced.'],
     ['Who do I contact with questions?', 'Email info@qrdconference.com for any questions or issues about submissions, registration, the workshops, or your visit.'],
 ];
 
@@ -214,10 +216,14 @@ function day_hours(array $day): string {
 }
 
 function member(array $m, string $variant): string {
-    $org = $m['affiliation'] !== '' ? '<p class="member-org">'.e($m['affiliation']).'</p>' : '';
+    $url = $m['url'] ?? '';
+    $link = fn(string $inner, string $class) => $url === '' ? $inner
+        : '<a class="'.$class.'" href="'.e($url).'" target="_blank" rel="noopener noreferrer">'.$inner.'<span class="visually-hidden"> (profile, opens in a new tab)</span></a>';
+    $org = $m['affiliation'] !== '' ? '<p class="member-org">'.implode('<br>', array_map(fn($line) => e(trim($line)), explode(';', $m['affiliation']))).'</p>' : '';
     $email = $m['email'] !== '' ? '<a class="member-email" href="mailto:'.e($m['email']).'">'.e($m['email']).'</a>' : '';
-    return '<li class="member member-'.$variant.'"><img class="member-photo" src="'.e($m['photo']).'" alt="" width="400" height="400" loading="lazy" decoding="async">'
-        .'<div><h3>'.e($m['name']).'</h3><p class="member-role">'.e($m['role']).'</p>'.$org.$email.'</div></li>';
+    $photo = '<img class="member-photo" src="'.e($m['photo']).'" alt="'.e($m['name']).'" width="400" height="400" loading="lazy" decoding="async">';
+    return '<li class="member member-'.$variant.'">'.($url === '' ? $photo : '<a class="member-photo-link" href="'.e($url).'" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">'.$photo.'</a>')
+        .'<div><h3>'.$link(e($m['name']), 'member-link').'</h3><p class="member-role">'.e($m['role']).'</p>'.$org.$email.'</div></li>';
 }
 
 // A cell that reads 'To be announced' is set in italic so pending values are easy to spot.
@@ -242,7 +248,7 @@ $pages = [
     'speakers' => ['Speakers', 'speakers.php'],
     'papers' => ['Call for papers', 'call-for-papers.php'],
     'registration' => ['Registration', 'registration.php'],
-    'venue' => ['Venue & contact', 'venue.php'],
+    'venue' => ['Venue & Contact', 'venue.php'],
     'committees' => ['Committees', 'committees.php'],
 ];
 $current_page = 'home';
@@ -269,7 +275,7 @@ function brand(): string {
 function page_start(string $page, string $title, string $description): void {
     global $current_page;
     $current_page = $page;
-    $links = nav_link('program', 'Programme').nav_link('workshops', 'Workshops').nav_link('speakers', 'Speakers').nav_link('papers', 'Call for papers').nav_link('venue', 'Venue & contact').nav_link('committees', 'Committees');
+    $links = nav_link('program', 'Programme').nav_link('workshops', 'Workshops').nav_link('speakers', 'Speakers').nav_link('papers', 'Call for papers').nav_link('venue', 'Venue & Contact').nav_link('committees', 'Committees');
     ?>
 <!doctype html>
 <html lang="en" class="no-js">
@@ -309,8 +315,8 @@ function site_footer(): void {
             <div class="wrap footer-grid">
                 <?= brand() ?>
 
-                <nav class="footer-nav" aria-label="Footer"><?= nav_link('program', 'Programme').nav_link('workshops', 'Workshops').nav_link('speakers', 'Speakers').nav_link('papers', 'Call for papers').nav_link('registration', 'Registration').nav_link('venue', 'Venue & contact').nav_link('committees', 'Committees') ?></nav>
-                <p class="footer-meta"><?= e($GLOBALS['conference']) ?>, <?= e($GLOBALS['conference_full']) ?>. 4–6 March 2027, VMCC, IIT Bombay, jointly organized with RTQF, IISc Bangalore.<br>Questions or issues? Email <a href="mailto:<?= e($GLOBALS['contact_email']) ?>"><?= e($GLOBALS['contact_email']) ?></a>.<br>© <?= date('Y') ?> Citadel Lab, IIT Bombay.</p>
+                <nav class="footer-nav" aria-label="Footer"><?= nav_link('program', 'Programme').nav_link('workshops', 'Workshops').nav_link('speakers', 'Speakers').nav_link('papers', 'Call for papers').nav_link('registration', 'Registration').nav_link('venue', 'Venue & Contact').nav_link('committees', 'Committees') ?></nav>
+                <p class="footer-meta">For questions about submissions, registration, or your visit, write to us at <a href="mailto:<?= e($GLOBALS['contact_email']) ?>"><?= e($GLOBALS['contact_email']) ?></a>.<br>© <?= date('Y') ?> Citadel Lab, IIT Bombay.</p>
             </div>
         </footer>
 <?php

@@ -29,7 +29,7 @@ $parallel = ['workshop', 'session'];
                 </div>
                 <ol class="span-rows">
                     <?php foreach ($days as $i => $day): ?>
-                    <li><a class="span-row" href="#day-<?= $i ?>">
+                    <li><a class="span-row" href="#day-<?= $i + 1 ?>">
                         <span class="span-day"><strong><?= e($day['label']) ?></strong> <?= e($day['short']) ?></span>
                         <span class="span-track" aria-hidden="true">
                             <?php foreach ($day['slots'] as [$start, $end, $kind]): ?>
@@ -58,10 +58,10 @@ $parallel = ['workshop', 'session'];
         $first_hour = (int) ceil($day_start / 60);
         $last_hour = (int) floor(minutes(end($day['slots'])[1]) / 60);
     ?>
-    <section id="day-<?= $i ?>" class="day" data-quiet aria-labelledby="day-<?= $i ?>-title">
+    <section id="day-<?= $i + 1 ?>" class="day" data-quiet aria-labelledby="day-<?= $i + 1 ?>-title">
         <div class="wrap day-grid">
             <header class="day-head">
-                <h2 id="day-<?= $i ?>-title"><span class="day-label"><?= e($day['label']) ?></span> <span class="day-date"><?= e($day['date']) ?></span></h2>
+                <h2 id="day-<?= $i + 1 ?>-title"><span class="day-label"><?= e($day['label']) ?></span> <span class="day-date"><?= e($day['date']) ?></span></h2>
                 <p class="day-theme"><?= e($day['theme']) ?></p>
                 <p class="day-hours"><?= e(day_hours($day)) ?></p>
                 <p class="day-text"><?= e($day['description']) ?></p>

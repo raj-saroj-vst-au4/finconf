@@ -64,7 +64,7 @@ page_start('home', 'QRD 2027 — Conference on Quant, Risk & Data, IIT Bombay',
                     <li><a href="<?= e(href('speakers')) ?>"><span class="contents-name">Speakers</span><span class="contents-text">The two keynote addresses, and invited speakers from academia and industry.</span></a></li>
                     <li><a href="<?= e(href('papers')) ?>"><span class="contents-name">Call for papers</span><span class="contents-text">Submit a paper by 20 December 2026 or a poster abstract by 15 January 2027: themes, how to submit, paper and poster presentation, key dates, and journal publication.</span></a></li>
                     <li><a href="<?= e(href('registration')) ?>"><span class="contents-name">Registration</span><span class="contents-text">Who should attend; conference, poster, and workshop fees; and deadlines.</span></a></li>
-                    <li><a href="<?= e(href('venue')) ?>"><span class="contents-name">Venue &amp; contact</span><span class="contents-text">The Victor Menezes Convention Centre on the IIT Bombay campus, how to get there, accommodation, and how to reach us.</span></a></li>
+                    <li><a href="<?= e(href('venue')) ?>"><span class="contents-name">Venue &amp; Contact</span><span class="contents-text">The Victor Menezes Convention Centre on the IIT Bombay campus, how to get there, accommodation, and how to reach us.</span></a></li>
                     <li><a href="<?= e(href('committees')) ?>"><span class="contents-name">Committees</span><span class="contents-text">The organising committee, the operations team, and the scientific programme committee.</span></a></li>
                 </ul>
             </div>
