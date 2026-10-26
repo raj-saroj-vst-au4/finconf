@@ -70,3 +70,14 @@ npm test
 ## Deployment
 
 Deploy the nine page files (`index.php`, `programme.php`, `workshops.php`, `speakers.php`, `keynotes.php` (redirect), `call-for-papers.php`, `registration.php`, `venue.php`, `committees.php`), `includes/` and `assets/` to a PHP-enabled web server; `assets/v2/src/` is not needed at runtime. Do not expose `node_modules/`, `tests/`, or build tooling from the public document root. HTTPS is recommended. No runtime CDN scripts, database credentials, or private environment values are needed.
+
+### Automatic deployment
+
+`.github/workflows/deploy.yml` deploys from GitHub to the production server (`server8.hostathash.com`, serving https://qrdconference.com/) on every push to `main`, and on demand from the repository's Actions tab ("Deploy to production" > "Run workflow"). It first runs `php -l` on every PHP file, then uploads the files that changed over FTPS. Files deleted from the repository are removed from the server; anything else already on the server is left alone.
+
+Set these once in GitHub under Settings > Secrets and variables > Actions:
+
+- Secrets: `FTP_SERVER` (`server8.hostathash.com`), `FTP_USERNAME`, `FTP_PASSWORD`.
+- Variable (optional): `FTP_SERVER_DIR`, the site's folder as the FTP account sees it, ending in `/` (for example `public_html/`). Leave it unset if the account opens straight into the document root.
+
+Until the secrets are set, the deploy step is skipped. Rebuild `assets/v2/v2.js` with `npm run build:v2` and commit it before pushing script changes: the pipeline uploads the repository as it is.

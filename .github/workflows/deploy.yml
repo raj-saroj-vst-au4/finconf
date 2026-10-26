@@ -1,0 +1,66 @@
+# Deploys the site to production (server8.hostathash.com) on every push to main, or on demand from the
+# Actions tab. The repository holds only the deployable site (see .gitignore), so files go up as they are:
+# there is no build step. assets/v2/v2.js is bundled locally with `npm run build:v2` and committed.
+#
+# Settings > Secrets and variables > Actions:
+#   Secrets:   FTP_SERVER (server8.hostathash.com), FTP_USERNAME, FTP_PASSWORD
+#   Variable:  FTP_SERVER_DIR, the site's folder as seen by the FTP account, ending in "/".
+#              Leave it unset when the account opens straight into the site's document root.
+# Until the secrets exist, the deploy step is skipped and the run still passes.
+
+name: Deploy to production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# One deploy at a time; a newer push waits for the running one instead of interrupting an upload.
+concurrency:
+  group: production
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Check PHP syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: php -l on every page and include
+        run: |
+          php -v | head -1
+          find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l
+
+  deploy:
+    name: Upload to production over FTPS
+    needs: check
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://qrdconference.com/
+    env:
+      FTP_SERVER: ${{ secrets.FTP_SERVER }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Skip when the FTP secrets are not set
+        if: env.FTP_SERVER == ''
+        run: echo "::warning::FTP_SERVER, FTP_USERNAME and FTP_PASSWORD are not set, so nothing was deployed."
+
+      # Uploads only files that changed since the last deploy (it keeps a sync state file on the server),
+      # and removes files that were deleted from the repository. Files on the server that this action never
+      # uploaded are left alone.
+      - name: Upload changed files
+        if: env.FTP_SERVER != ''
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          server-dir: ${{ vars.FTP_SERVER_DIR || './' }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            README.md
