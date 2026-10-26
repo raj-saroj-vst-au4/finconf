@@ -59,6 +59,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           server-dir: ${{ vars.FTP_SERVER_DIR || './' }}
+          # Apache refuses to serve files whose names start with .ht, so the sync state stays private.
+          state-name: .htdeploy-sync-state.json
           exclude: |
             **/.git*
             **/.git*/**
