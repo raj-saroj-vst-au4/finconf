@@ -160,10 +160,10 @@ $poster_dates = [
     ['Conference', '4–6 March 2027'],
 ];
 
-// Journal to which selected conference papers are fast-tracked (there is no special issue). Set $journal_cover to
-// the journal's title page image (for example 'assets/images/asmbi-cover.jpg') to show it on the call for papers.
+// Journal that conference participants are encouraged to submit to. $journal_cover is the journal's title page
+// image, shown on the call for papers once the file exists.
 $journal_name = 'Applied Stochastic Models in Business and Industry';
-$journal_url = 'https://wiley.atyponrex.com/journal/ASMB';
+$journal_url = 'https://onlinelibrary.wiley.com/journal/15264025';
 $journal_cover = 'assets/images/asmbi-cover.jpg';   // shown once the file exists
 
 // Registration fees: [category, early bird, regular]. Main conference days and oral paper presentations.
