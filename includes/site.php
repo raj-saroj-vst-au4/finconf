@@ -99,7 +99,7 @@ $faculty = array_values(array_filter($team, fn($m) => str_starts_with($m['role']
 $students = array_values(array_filter($team, fn($m) => !str_starts_with($m['role'], 'Faculty')));
 
 $operations = [
-    ['role' => 'Manager', 'name' => 'Ms. Varsha Manne', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/varsha-manne.jpg'],
+    ['role' => 'Program Manager', 'name' => 'Ms. Varsha Manne', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/varsha-manne.jpg'],
     ['role' => 'Admin staff', 'name' => 'Salman Shaikh', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/salman-shaikh.jpg'],
     ['role' => 'Tech staff', 'name' => 'Raj Saroj', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/raj-saroj.svg'],
 ];
