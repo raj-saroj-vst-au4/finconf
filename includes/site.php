@@ -87,7 +87,8 @@ $days = [
 $team = [
     ['role' => 'Faculty Chair', 'name' => 'Prof. Sudeep R. Bapat', 'affiliation' => 'PIC, IITB-Citadel Securities Quantitative Research Lab; Assistant Professor, SJMSOM', 'email' => '', 'url' => 'https://sites.google.com/view/srbapat/home', 'photo' => 'assets/images/team/sudeep-bapat.jpg'],
     ['role' => 'Faculty Co-Chair', 'name' => 'Prof. Piyush Pandey', 'affiliation' => 'Assistant Professor, SJMSOM', 'email' => '', 'url' => 'https://sites.google.com/iitb.ac.in/prof-piyush-pandey/home', 'photo' => 'assets/images/team/piyush-pandey.jpg'],
-    ['role' => 'Faculty member', 'name' => 'Prof. Shashi Jain', 'affiliation' => 'Associate Professor, Department of Management Studies, IISc Bangalore', 'email' => '', 'url' => 'https://scholar.google.com/citations?user=TA9NeywAAAAJ&hl=en', 'photo' => 'assets/images/team/shashi-jain.svg'],
+    ['role' => 'Faculty member', 'name' => 'Prof. Shashi Jain', 'affiliation' => 'Associate Professor, Department of Management Studies, IISc Bangalore', 'email' => '', 'url' => 'https://scholar.google.com/citations?user=TA9NeywAAAAJ&hl=en', 'photo' => 'assets/images/team/Shashi-Jain.jpg'],
+    ['role' => 'Faculty member', 'name' => 'Prof. Siddhartha Pratim Chakrabarty', 'affiliation' => 'Professor, Department of Mathematics, IIT Guwahati', 'email' => '', 'url' => 'https://sites.google.com/site/pratimiitg/?pli=1&authuser=0', 'photo' => 'assets/images/team/spc.jpg'],
     ['role' => 'Student coordinator', 'name' => 'Aryan Bhambu', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://github.com/aryanbhambu', 'photo' => 'assets/images/team/aryan-bhambu.jpeg'],
     ['role' => 'Student coordinator', 'name' => 'Anshul Pawaskar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/anshul-pawaskar.jpg'],
     ['role' => 'Student coordinator', 'name' => 'Keshav Kumar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/keshav-kumar.svg'],
@@ -108,12 +109,12 @@ $operations = [
 $academia_speakers = [
     ['name' => 'Anirban Banerjee', 'affiliation' => 'IIM Ahmedabad', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Anirban-Banerjee.jpg', 'url' => 'https://www.iima.ac.in/faculty-research/faculty-directory/anirban-banerjee'],
     ['name' => 'Joshy Jacob', 'affiliation' => 'IIM Ahmedabad', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Joshy-Jacob.jpeg', 'url' => 'https://www.iima.ac.in/faculty-research/faculty-directory/joshy-jacob'],
-    ['name' => 'Nirupama Kulkarni', 'affiliation' => 'CAFRAL', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Nirupama-Kulkarni.avif', 'url' => 'https://www.nirupamakulkarni.com/'],
+    ['name' => 'Nirupama Kulkarni', 'affiliation' => 'CAFRAL', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Nirupama-Kulkarni.jpg', 'url' => 'https://www.nirupamakulkarni.com/'],
     ['name' => 'Samarpan Nawn', 'affiliation' => 'IIM Udaipur', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Samarpan-Nawn.jpg', 'url' => 'https://faculty.iimu.ac.in/directory/samarpan-nawn/'],
     ['name' => 'Sourav Majumdar', 'affiliation' => 'IIT Kanpur', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Sourav-Majumdar.jpg', 'url' => 'https://iitk.ac.in/sourav-majumdar']];
 $industry_speakers = [
     ['name' => 'Eshan Ahluwalia', 'affiliation' => 'BlackRock', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Eshan-Ahluwalia.jpg', 'url' => 'https://scholar.google.com/citations?user=TQvvgzIAAAAJ&hl=en'], 
-    ['name' => 'Lokesh Mrig', 'affiliation' => 'State Street Investment Management', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Lokesh-Mrig.jpg', 'url' => 'https://in.linkedin.com/in/lokesh-mrig']
+    ['name' => 'Lokesh Mrig', 'affiliation' => 'State Street Investment Management', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Lokesh-Mrig.png', 'url' => 'https://in.linkedin.com/in/lokesh-mrig']
 ];
 
 // Scientific programme committee: ['name' => '', 'affiliation' => '']. Empty until members are announced.
@@ -234,16 +235,7 @@ function member(array $m, string $variant): string {
     return '<li class="member member-'.$variant.'">'.($url === '' ? $photo : '<a class="member-photo-link" href="'.e($url).'" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">'.$photo.'</a>')
         .'<div><h3>'.$link(e($m['name']), 'member-link').'</h3><p class="member-role">'.e($m['role']).'</p>'.$org.$email.'</div></li>';
 }
-function speaker(array $s): string {
-    $url = $s['url'] ?? '';
-    $link = fn(string $inner, string $class) => $url === '' ? $inner
-        : '<a class="'.$class.'" href="'.e($url).'" target="_blank" rel="noopener noreferrer">'.$inner.'<span class="visually-hidden"> (profile, opens in a new tab)</span></a>';
-    $org = $s['affiliation'] !== '' ? '<p class="member-org">'.implode('<br>', array_map(fn($line) => e(trim($line)), explode(';', $s['affiliation']))).'</p>' : '';
-    // 'whole' => true shows the photo uncropped inside the square, for photos that should not be trimmed.
-    $photo = '<img class="member-photo'.(!empty($s['whole']) ? ' member-photo-whole' : '').'" src="'.e($s['photo']).'" alt=""'.e($s['name']).'" width="400" height="400" loading="lazy" decoding="async">';
-    return '<li class="member member-student">'.($url === '' ? $photo : '<a class="member-photo-link" href="'.e($url).'" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">'.$photo.'</a>')
-        .'<div><h3>'.$link(e($s['name']), 'member-link').'</h3><p class="member-role">'.e($s['role']).'</p>'.$org.$email.'</div></li>';
-}
+
 // A cell that reads 'To be announced' is set in italic so pending values are easy to spot.
 function cell(string $value): string {
     return '<td'.($value === 'To be announced' ? ' class="is-pending"' : '').'>'.e($value).'</td>';

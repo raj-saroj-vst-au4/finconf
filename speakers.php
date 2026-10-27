@@ -5,10 +5,23 @@ page_start('speakers', 'Speakers — QRD 2027, IIT Bombay',
     'Keynote, academia, and industry speakers at QRD 2027, the Conference on Quant, Risk & Data at VMCC, IIT Bombay, 4–6 March 2027.');
 
 // An invited speaker from academia or industry, set like a keynote.
-// function speaker(array $s): string {
-//     $talk = $s['talk'] !== '' ? '<p>'.e($s['talk']).'</p>' : '';
-//     return '<article class="keynote"><h3>'.e($s['name']).'</h3><p class="keynote-when">'.e($s['affiliation']).'</p>'.$talk.'</article>';
-// }
+function speaker(array $s): string {
+    $name = e($s['name']);
+    $affiliation = e($s['affiliation']);
+    $photo = e($s['photo']);
+    $url = e($s['url']);
+
+    return '
+        <li class="member member-speaker">
+            <a class="member-photo-link" href="'.$url.'" target="_blank" rel="noopener noreferrer">
+                <img class="member-photo" src="'.$photo.'" alt="'.$name.'" loading="lazy">
+            </a>
+            <h3>
+                <a class="member-link" href="'.$url.'" target="_blank" rel="noopener noreferrer">'.$name.'</a>
+            </h3>
+            <p class="member-org">'.$affiliation.'</p>
+        </li>';
+}
 
 ?>
     <section class="page-hero" <?= figure_attrs(2) ?> aria-labelledby="page-title">
@@ -41,21 +54,32 @@ page_start('speakers', 'Speakers — QRD 2027, IIT Bombay',
         </div>
     </section>
 
-    <?php foreach (['academia' => ['Academia speakers', $academia_speakers], 'industry' => ['Industry speakers', $industry_speakers]] as $id => [$heading, $list]): ?>
-    <section id="<?= $id ?>" class="page-section" data-quiet aria-labelledby="<?= $id ?>-title">
-        <div class="wrap page-grid">
+    <?php foreach ([
+        'academia' => ['Academia speakers', $academia_speakers],
+        'industry' => ['Industry speakers', $industry_speakers]
+    ] as $id => [$heading, $list]): ?>
+
+    <section id="<?= $id ?>" class="team" data-quiet
+            aria-labelledby="<?= $id ?>-title">
+        <div class="wrap">
             <h2 id="<?= $id ?>-title"><?= e($heading) ?></h2>
+
             <?php if ($list): ?>
-            <!-- <div class="speaker-list"><?php foreach ($list as $s) echo speaker($s); ?></div> -->
-            <div class="speaker-list">
-                <ul class="operations" aria-labelledby="operations-title"><?php foreach ($list as $s) echo speaker($s); ?></ul>
-            </div>
+                <ul class="students speaker-grid"
+                    aria-labelledby="<?= $id ?>-title">
+                    <?php foreach ($list as $s): ?>
+                        <?= speaker($s) ?>
+                    <?php endforeach; ?>
+                </ul>
             <?php else: ?>
-            <div class="prose"><p class="pending">Speakers will be announced.</p></div>
+                <p class="pending">Speakers will be announced.</p>
             <?php endif; ?>
         </div>
     </section>
+
     <?php endforeach; ?>
+
+
 
 <?php site_footer(); ?>
 <?php page_end();
