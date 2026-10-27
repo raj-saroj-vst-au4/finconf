@@ -88,11 +88,11 @@ $team = [
     ['role' => 'Faculty Chair', 'name' => 'Prof. Sudeep R. Bapat', 'affiliation' => 'PIC, IITB-Citadel Securities Quantitative Research Lab; Assistant Professor, SJMSOM', 'email' => '', 'url' => 'https://sites.google.com/view/srbapat/home', 'photo' => 'assets/images/team/sudeep-bapat.jpg'],
     ['role' => 'Faculty Co-Chair', 'name' => 'Prof. Piyush Pandey', 'affiliation' => 'Assistant Professor, SJMSOM', 'email' => '', 'url' => 'https://sites.google.com/iitb.ac.in/prof-piyush-pandey/home', 'photo' => 'assets/images/team/piyush-pandey.jpg'],
     ['role' => 'Faculty member', 'name' => 'Prof. Shashi Jain', 'affiliation' => 'Associate Professor, Department of Management Studies, IISc Bangalore', 'email' => '', 'url' => 'https://scholar.google.com/citations?user=TA9NeywAAAAJ&hl=en', 'photo' => 'assets/images/team/shashi-jain.svg'],
-    ['role' => 'Student coordinator', 'name' => 'Aryan Bhambu', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://github.com/aryanbhambu', 'photo' => 'assets/images/team/aryan-bhambu.jpg'],
+    ['role' => 'Student coordinator', 'name' => 'Aryan Bhambu', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://github.com/aryanbhambu', 'photo' => 'assets/images/team/aryan-bhambu.jpeg'],
     ['role' => 'Student coordinator', 'name' => 'Anshul Pawaskar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/anshul-pawaskar.jpg'],
     ['role' => 'Student coordinator', 'name' => 'Keshav Kumar', 'affiliation' => '', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/keshav-kumar.svg'],
     ['role' => 'Student coordinator', 'name' => 'Jyoti Pandey', 'affiliation' => '', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/jyoti-pandey.svg'],
-    ['role' => 'Student coordinator', 'name' => 'Koushik Bera', 'affiliation' => '', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/koushik-bera.svg'],
+    ['role' => 'Student coordinator', 'name' => 'Koushik Bera', 'affiliation' => '', 'email' => '', 'url' => 'https://kberaml.github.io/', 'photo' => 'assets/images/team/koushik-bera.jpg'],
     ['role' => 'Student coordinator', 'name' => 'Salam Rabindrajit Luwang', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://srabindrajitluwang.github.io/index.html', 'photo' => 'assets/images/team/salam-rabindrajit-luwang.jpg'],
 ];
 $faculty = array_values(array_filter($team, fn($m) => str_starts_with($m['role'], 'Faculty')));
@@ -101,7 +101,7 @@ $students = array_values(array_filter($team, fn($m) => !str_starts_with($m['role
 $operations = [
     ['role' => 'Program Manager', 'name' => 'Ms. Varsha Manne', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/varsha-manne.jpg'],
     ['role' => 'Admin staff', 'name' => 'Salman Shaikh', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/salman-shaikh.jpg'],
-    ['role' => 'Tech staff', 'name' => 'Raj Saroj', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/raj-saroj.svg'],
+    ['role' => 'Tech staff', 'name' => 'Raj Saroj', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/raj-saroj.jpg'],
 ];
 
 // Invited speakers from academia and industry: ['name' => '', 'affiliation' => '', 'talk' => '']. Empty until announced.
