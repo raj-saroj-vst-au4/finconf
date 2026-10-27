@@ -90,9 +90,9 @@ $team = [
     ['role' => 'Faculty member', 'name' => 'Prof. Shashi Jain', 'affiliation' => 'Associate Professor, Department of Management Studies, IISc Bangalore', 'email' => '', 'url' => 'https://scholar.google.com/citations?user=TA9NeywAAAAJ&hl=en', 'photo' => 'assets/images/team/shashi-jain.svg'],
     ['role' => 'Student coordinator', 'name' => 'Aryan Bhambu', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://github.com/aryanbhambu', 'photo' => 'assets/images/team/aryan-bhambu.jpeg'],
     ['role' => 'Student coordinator', 'name' => 'Anshul Pawaskar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/anshul-pawaskar.jpg'],
-    ['role' => 'Student coordinator', 'name' => 'Keshav Kumar', 'affiliation' => '', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/keshav-kumar.svg'],
-    ['role' => 'Student coordinator', 'name' => 'Jyoti Pandey', 'affiliation' => '', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/jyoti-pandey.svg'],
-    ['role' => 'Student coordinator', 'name' => 'Koushik Bera', 'affiliation' => '', 'email' => '', 'url' => 'https://kberaml.github.io/', 'photo' => 'assets/images/team/koushik-bera.jpg'],
+    ['role' => 'Student coordinator', 'name' => 'Keshav Kumar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/keshav-kumar.svg'],
+    ['role' => 'Student coordinator', 'name' => 'Jyoti Pandey', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/jyoti-pandey.svg'],
+    ['role' => 'Student coordinator', 'name' => 'Koushik Bera', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://kberaml.github.io/', 'photo' => 'assets/images/team/koushik-bera.jpg'],
     ['role' => 'Student coordinator', 'name' => 'Salam Rabindrajit Luwang', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://srabindrajitluwang.github.io/index.html', 'photo' => 'assets/images/team/salam-rabindrajit-luwang.jpg'],
 ];
 $faculty = array_values(array_filter($team, fn($m) => str_starts_with($m['role'], 'Faculty')));
@@ -105,8 +105,16 @@ $operations = [
 ];
 
 // Invited speakers from academia and industry: ['name' => '', 'affiliation' => '', 'talk' => '']. Empty until announced.
-$academia_speakers = [];
-$industry_speakers = [];
+$academia_speakers = [
+    ['name' => 'Anirban Banerjee', 'affiliation' => 'IIM Ahmedabad', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Anirban-Banerjee.jpg', 'url' => 'https://www.iima.ac.in/faculty-research/faculty-directory/anirban-banerjee'],
+    ['name' => 'Joshy Jacob', 'affiliation' => 'IIM Ahmedabad', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Joshy-Jacob.jpeg', 'url' => 'https://www.iima.ac.in/faculty-research/faculty-directory/joshy-jacob'],
+    ['name' => 'Nirupama Kulkarni', 'affiliation' => 'CAFRAL', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Nirupama-Kulkarni.avif', 'url' => 'https://www.nirupamakulkarni.com/'],
+    ['name' => 'Samarpan Nawn', 'affiliation' => 'IIM Udaipur', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Samarpan-Nawn.jpg', 'url' => 'https://faculty.iimu.ac.in/directory/samarpan-nawn/'],
+    ['name' => 'Sourav Majumdar', 'affiliation' => 'IIT Kanpur', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Sourav-Majumdar.jpg', 'url' => 'https://iitk.ac.in/sourav-majumdar']];
+$industry_speakers = [
+    ['name' => 'Eshan Ahluwalia', 'affiliation' => 'BlackRock', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Eshan-Ahluwalia.jpg', 'url' => 'https://scholar.google.com/citations?user=TQvvgzIAAAAJ&hl=en'], 
+    ['name' => 'Lokesh Mrig', 'affiliation' => 'State Street Investment Management', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Lokesh-Mrig.jpg', 'url' => 'https://in.linkedin.com/in/lokesh-mrig']
+];
 
 // Scientific programme committee: ['name' => '', 'affiliation' => '']. Empty until members are announced.
 $programme_committee = [];
