@@ -5,21 +5,11 @@ page_start('speakers', 'Speakers — QRD 2027, IIT Bombay',
     'Keynote, academia, and industry speakers at QRD 2027, the Conference on Quant, Risk & Data at VMCC, IIT Bombay, 4–6 March 2027.');
 
 // An invited speaker from academia or industry, set like a keynote.
-function speaker(array $s): string {
-    $talk = $s['talk'] !== '' ? '<p>'.e($s['talk']).'</p>' : '';
-    return '<article class="keynote"><h3>'.e($s['name']).'</h3><p class="keynote-when">'.e($s['affiliation']).'</p>'.$talk.'</article>';
-}
-function member(array $s): string {
-    $url = $s['url'] ?? '';
-    $link = fn(string $inner, string $class) => $url === '' ? $inner
-        : '<a class="'.$class.'" href="'.e($url).'" target="_blank" rel="noopener noreferrer">'.$inner.'<span class="visually-hidden"> (profile, opens in a new tab)</span></a>';
-    $org = $s['affiliation'] !== '' ? '<p class="member-org">'.implode('<br>', array_map(fn($line) => e(trim($line)), explode(';', $s['affiliation']))).'</p>' : '';
-    $email = $s['email'] !== '' ? '<a class="member-email" href="mailto:'.e($s['email']).'">'.e($s['email']).'</a>' : '';
-    // 'whole' => true shows the photo uncropped inside the square, for photos that should not be trimmed.
-    $photo = '<img class="member-photo'.(!empty($s['whole']) ? ' member-photo-whole' : '').'" src="'.e($s['photo']).'" alt=""'.e($s['name']).'" width="400" height="400" loading="lazy" decoding="async">';
-    return '<li class="member member-'.$variant.'">'.($url === '' ? $photo : '<a class="member-photo-link" href="'.e($url).'" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">'.$photo.'</a>')
-        .'<div><h3>'.$link(e($s['name']), 'member-link').'</h3><p class="member-role">'.e($s['role']).'</p>'.$org.$email.'</div></li>';
-}
+// function speaker(array $s): string {
+//     $talk = $s['talk'] !== '' ? '<p>'.e($s['talk']).'</p>' : '';
+//     return '<article class="keynote"><h3>'.e($s['name']).'</h3><p class="keynote-when">'.e($s['affiliation']).'</p>'.$talk.'</article>';
+// }
+
 ?>
     <section class="page-hero" <?= figure_attrs(2) ?> aria-labelledby="page-title">
         <div class="wrap">
@@ -56,7 +46,10 @@ function member(array $s): string {
         <div class="wrap page-grid">
             <h2 id="<?= $id ?>-title"><?= e($heading) ?></h2>
             <?php if ($list): ?>
-            <div class="speaker-list"><?php foreach ($list as $s) echo speaker($s); ?></div>
+            <!-- <div class="speaker-list"><?php foreach ($list as $s) echo speaker($s); ?></div> -->
+            <div class="speaker-list">
+                <ul class="operations" aria-labelledby="operations-title"><?php foreach ($list as $s) echo speaker($s); ?></ul>
+            </div>
             <?php else: ?>
             <div class="prose"><p class="pending">Speakers will be announced.</p></div>
             <?php endif; ?>
