@@ -9,6 +9,17 @@ function speaker(array $s): string {
     $talk = $s['talk'] !== '' ? '<p>'.e($s['talk']).'</p>' : '';
     return '<article class="keynote"><h3>'.e($s['name']).'</h3><p class="keynote-when">'.e($s['affiliation']).'</p>'.$talk.'</article>';
 }
+function member(array $s): string {
+    $url = $s['url'] ?? '';
+    $link = fn(string $inner, string $class) => $url === '' ? $inner
+        : '<a class="'.$class.'" href="'.e($url).'" target="_blank" rel="noopener noreferrer">'.$inner.'<span class="visually-hidden"> (profile, opens in a new tab)</span></a>';
+    $org = $s['affiliation'] !== '' ? '<p class="member-org">'.implode('<br>', array_map(fn($line) => e(trim($line)), explode(';', $s['affiliation']))).'</p>' : '';
+    $email = $s['email'] !== '' ? '<a class="member-email" href="mailto:'.e($s['email']).'">'.e($s['email']).'</a>' : '';
+    // 'whole' => true shows the photo uncropped inside the square, for photos that should not be trimmed.
+    $photo = '<img class="member-photo'.(!empty($s['whole']) ? ' member-photo-whole' : '').'" src="'.e($s['photo']).'" alt=""'.e($s['name']).'" width="400" height="400" loading="lazy" decoding="async">';
+    return '<li class="member member-'.$variant.'">'.($url === '' ? $photo : '<a class="member-photo-link" href="'.e($url).'" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">'.$photo.'</a>')
+        .'<div><h3>'.$link(e($s['name']), 'member-link').'</h3><p class="member-role">'.e($s['role']).'</p>'.$org.$email.'</div></li>';
+}
 ?>
     <section class="page-hero" <?= figure_attrs(2) ?> aria-labelledby="page-title">
         <div class="wrap">
