@@ -101,7 +101,7 @@ $students = array_values(array_filter($team, fn($m) => !str_starts_with($m['role
 $operations = [
     ['role' => 'Program Manager', 'name' => 'Ms. Varsha Manne', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/varsha-manne.jpg'],
     ['role' => 'Admin staff', 'name' => 'Salman Shaikh', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/salman-shaikh.jpg'],
-    ['role' => 'Tech staff', 'name' => 'Raj Saroj', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/raj-saroj.jpg'],
+    ['role' => 'Tech staff', 'name' => 'Raj Saroj', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/raj-saroj.jpg', 'whole' => true],
 ];
 
 // Invited speakers from academia and industry: ['name' => '', 'affiliation' => '', 'talk' => '']. Empty until announced.
@@ -221,7 +221,8 @@ function member(array $m, string $variant): string {
         : '<a class="'.$class.'" href="'.e($url).'" target="_blank" rel="noopener noreferrer">'.$inner.'<span class="visually-hidden"> (profile, opens in a new tab)</span></a>';
     $org = $m['affiliation'] !== '' ? '<p class="member-org">'.implode('<br>', array_map(fn($line) => e(trim($line)), explode(';', $m['affiliation']))).'</p>' : '';
     $email = $m['email'] !== '' ? '<a class="member-email" href="mailto:'.e($m['email']).'">'.e($m['email']).'</a>' : '';
-    $photo = '<img class="member-photo" src="'.e($m['photo']).'" alt="'.e($m['name']).'" width="400" height="400" loading="lazy" decoding="async">';
+    // 'whole' => true shows the photo uncropped inside the square, for photos that should not be trimmed.
+    $photo = '<img class="member-photo'.(!empty($m['whole']) ? ' member-photo-whole' : '').'" src="'.e($m['photo']).'" alt=""'.e($m['name']).'" width="400" height="400" loading="lazy" decoding="async">';
     return '<li class="member member-'.$variant.'">'.($url === '' ? $photo : '<a class="member-photo-link" href="'.e($url).'" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">'.$photo.'</a>')
         .'<div><h3>'.$link(e($m['name']), 'member-link').'</h3><p class="member-role">'.e($m['role']).'</p>'.$org.$email.'</div></li>';
 }
