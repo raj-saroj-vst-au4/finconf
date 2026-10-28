@@ -235,13 +235,19 @@ function day_hours(array $day): string {
     return time_range($day['slots'][0][0], end($day['slots'])[1]);
 }
 
+// A local file's URL with its modification time appended, so browsers fetch a replaced photo instead of a cached copy.
+function asset_url(string $path): string {
+    $file = dirname(__DIR__).'/'.$path;
+    return is_file($file) ? $path.'?v='.filemtime($file) : $path;
+}
+
 function member(array $m, string $variant): string {
     $url = $m['url'] ?? '';
     $link = fn(string $inner, string $class) => $url === '' ? $inner
         : '<a class="'.$class.'" href="'.e($url).'" target="_blank" rel="noopener noreferrer">'.$inner.'<span class="visually-hidden"> (profile, opens in a new tab)</span></a>';
     $org = $m['affiliation'] !== '' ? '<p class="member-org">'.implode('<br>', array_map(fn($line) => e(trim($line)), explode(';', $m['affiliation']))).'</p>' : '';
     $email = $m['email'] !== '' ? '<a class="member-email" href="mailto:'.e($m['email']).'">'.e($m['email']).'</a>' : '';
-    $photo = '<img class="member-photo" src="'.e($m['photo']).'" alt="'.e($m['name']).'" width="400" height="400" loading="lazy" decoding="async">';
+    $photo = '<img class="member-photo" src="'.e(asset_url($m['photo'])).'" alt="'.e($m['name']).'" width="400" height="400" loading="lazy" decoding="async">';
     return '<li class="member member-'.$variant.'">'.($url === '' ? $photo : '<a class="member-photo-link" href="'.e($url).'" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">'.$photo.'</a>')
         .'<div><h3>'.$link(e($m['name']), 'member-link').'</h3><p class="member-role">'.e($m['role']).'</p>'.$org.$email.'</div></li>';
 }
