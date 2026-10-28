@@ -32,11 +32,11 @@ page_start('committees', 'Committees — QRD 2027, IIT Bombay',
             <div class="prose">
                 <p>The scientific programme committee reviews every submission to the <a href="<?= e(href('papers')) ?>">call for papers</a> and decides on acceptance and session allocation.</p>
                 <?php if ($programme_committee): ?>
-                <table class="data-table" aria-label="Members of the scientific programme committee">
+                <table class="data-table data-table-text" aria-label="Members of the scientific programme committee">
                     <thead><tr><th scope="col">Name</th><th scope="col">Affiliation</th></tr></thead>
                     <tbody>
                         <?php foreach ($programme_committee as $m): ?>
-                        <tr><th scope="row"><?= e($m['name']) ?></th><td><?= e($m['affiliation']) ?></td></tr>
+                        <tr><th scope="row"><?php if (($m['url'] ?? '') !== ''): ?><a href="<?= e($m['url']) ?>" target="_blank" rel="noopener noreferrer"><?= e($m['name']) ?><span class="visually-hidden"> (profile, opens in a new tab)</span></a><?php else: ?><?= e($m['name']) ?><?php endif; ?></th><td><?= e($m['affiliation']) ?></td></tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>

@@ -102,23 +102,34 @@ $students = array_values(array_filter($team, fn($m) => !str_starts_with($m['role
 $operations = [
     ['role' => 'Program Manager', 'name' => 'Ms. Varsha Manne', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/varsha-manne.jpg'],
     ['role' => 'Admin staff', 'name' => 'Salman Shaikh', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/salman-shaikh.jpg'],
-    ['role' => 'Tech staff', 'name' => 'Raj Saroj', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/raj-saroj.jpg', 'whole' => true],
+    ['role' => 'Tech staff', 'name' => 'Raj Saroj', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/raj-saroj-portrait.jpg'],
 ];
 
-// Invited speakers from academia and industry: ['name' => '', 'affiliation' => '', 'talk' => '']. Empty until announced.
+// Speakers page. Keynotes are keyed by their slot title in $days, which gives their day and time; set 'speaker' (and
+// optionally 'affiliation', 'url', 'photo') once announced. Invited speakers from academia and industry take
+// ['name', 'affiliation', 'talk', 'url', 'photo']: 'url' links the name to a profile page, 'photo' is a square image
+// (initials are shown without one); leave any field empty until known.
+$keynotes = [
+    'Keynote Address I' => ['title' => 'Rethinking the possibilities of finance', 'summary' => 'Ideas, models, and open questions at the leading edge of quantitative research.', 'speaker' => '', 'affiliation' => '', 'url' => '', 'photo' => ''],
+    'Keynote Address II' => ['title' => 'Understanding what moves markets', 'summary' => 'Technology, market structure, and the evolving landscape of electronic trading.', 'speaker' => '', 'affiliation' => '', 'url' => '', 'photo' => ''],
+];
 $academia_speakers = [
     ['name' => 'Anirban Banerjee', 'affiliation' => 'IIM Ahmedabad', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Anirban-Banerjee.jpg', 'url' => 'https://www.iima.ac.in/faculty-research/faculty-directory/anirban-banerjee'],
     ['name' => 'Joshy Jacob', 'affiliation' => 'IIM Ahmedabad', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Joshy-Jacob.jpeg', 'url' => 'https://www.iima.ac.in/faculty-research/faculty-directory/joshy-jacob'],
     ['name' => 'Nirupama Kulkarni', 'affiliation' => 'CAFRAL', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Nirupama-Kulkarni.jpg', 'url' => 'https://www.nirupamakulkarni.com/'],
     ['name' => 'Samarpan Nawn', 'affiliation' => 'IIM Udaipur', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Samarpan-Nawn.jpg', 'url' => 'https://faculty.iimu.ac.in/directory/samarpan-nawn/'],
-    ['name' => 'Sourav Majumdar', 'affiliation' => 'IIT Kanpur', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Sourav-Majumdar.jpg', 'url' => 'https://iitk.ac.in/sourav-majumdar']];
+    ['name' => 'Sourav Majumdar', 'affiliation' => 'IIT Kanpur', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Sourav-Majumdar.jpg', 'url' => 'https://iitk.ac.in/sourav-majumdar'],
+];
 $industry_speakers = [
-    ['name' => 'Eshan Ahluwalia', 'affiliation' => 'BlackRock', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Eshan-Ahluwalia.jpg', 'url' => 'https://scholar.google.com/citations?user=TQvvgzIAAAAJ&hl=en'], 
-    ['name' => 'Lokesh Mrig', 'affiliation' => 'State Street Investment Management', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Lokesh-Mrig.png', 'url' => 'https://in.linkedin.com/in/lokesh-mrig']
+    ['name' => 'Eshan Ahluwalia', 'affiliation' => 'BlackRock', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Eshan-Ahluwalia.jpg', 'url' => 'https://scholar.google.com/citations?user=TQvvgzIAAAAJ&hl=en'],
+    ['name' => 'Lokesh Mrig', 'affiliation' => 'State Street Investment Management', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Lokesh-Mrig.png', 'url' => 'https://in.linkedin.com/in/lokesh-mrig'],
+    ['name' => 'Deep Narayan', 'affiliation' => '', 'talk' => '', 'photo' => '', 'url' => 'https://www.linkedin.com/in/deep-narayan-35729822/'],
 ];
 
-// Scientific programme committee: ['name' => '', 'affiliation' => '']. Empty until members are announced.
-$programme_committee = [];
+// Scientific programme committee: ['name' => '', 'affiliation' => '', 'url' => '']. 'url' links the name to a profile page.
+$programme_committee = [
+    ['name' => 'Prof. Rohan Chinchwadkar', 'affiliation' => 'Associate Professor of Finance, SJMSOM, IIT Bombay', 'url' => 'https://www.som.iitb.ac.in/prof-rohan-chinchwadkar/'],
+];
 
 // Conference themes, on the home page and as the call for papers' topics: the title, then the research areas it covers.
 $themes = [
@@ -230,8 +241,7 @@ function member(array $m, string $variant): string {
         : '<a class="'.$class.'" href="'.e($url).'" target="_blank" rel="noopener noreferrer">'.$inner.'<span class="visually-hidden"> (profile, opens in a new tab)</span></a>';
     $org = $m['affiliation'] !== '' ? '<p class="member-org">'.implode('<br>', array_map(fn($line) => e(trim($line)), explode(';', $m['affiliation']))).'</p>' : '';
     $email = $m['email'] !== '' ? '<a class="member-email" href="mailto:'.e($m['email']).'">'.e($m['email']).'</a>' : '';
-    // 'whole' => true shows the photo uncropped inside the square, for photos that should not be trimmed.
-    $photo = '<img class="member-photo'.(!empty($m['whole']) ? ' member-photo-whole' : '').'" src="'.e($m['photo']).'" alt=""'.e($m['name']).'" width="400" height="400" loading="lazy" decoding="async">';
+    $photo = '<img class="member-photo" src="'.e($m['photo']).'" alt="'.e($m['name']).'" width="400" height="400" loading="lazy" decoding="async">';
     return '<li class="member member-'.$variant.'">'.($url === '' ? $photo : '<a class="member-photo-link" href="'.e($url).'" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">'.$photo.'</a>')
         .'<div><h3>'.$link(e($m['name']), 'member-link').'</h3><p class="member-role">'.e($m['role']).'</p>'.$org.$email.'</div></li>';
 }
