@@ -88,7 +88,6 @@ $team = [
     ['role' => 'Faculty Chair', 'name' => 'Prof. Sudeep R. Bapat', 'affiliation' => 'PIC, IITB-Citadel Securities Quantitative Research Lab; Assistant Professor, SJMSOM', 'email' => '', 'url' => 'https://sites.google.com/view/srbapat/home', 'photo' => 'assets/images/team/sudeep-bapat.jpg'],
     ['role' => 'Faculty Co-Chair', 'name' => 'Prof. Piyush Pandey', 'affiliation' => 'Assistant Professor, SJMSOM', 'email' => '', 'url' => 'https://sites.google.com/iitb.ac.in/prof-piyush-pandey/home', 'photo' => 'assets/images/team/piyush-pandey.jpg'],
     ['role' => 'Faculty member', 'name' => 'Prof. Shashi Jain', 'affiliation' => 'Associate Professor, Department of Management Studies, IISc Bangalore', 'email' => '', 'url' => 'https://scholar.google.com/citations?user=TA9NeywAAAAJ&hl=en', 'photo' => 'assets/images/team/Shashi-Jain.jpg'],
-    ['role' => 'Faculty member', 'name' => 'Prof. Siddhartha Pratim Chakrabarty', 'affiliation' => 'Professor, Department of Mathematics, IIT Guwahati', 'email' => '', 'url' => 'https://sites.google.com/site/pratimiitg/?pli=1&authuser=0', 'photo' => 'assets/images/team/spc.jpg'],
     ['role' => 'Student coordinator', 'name' => 'Aryan Bhambu', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://github.com/aryanbhambu', 'photo' => 'assets/images/team/aryan-bhambu.jpeg'],
     ['role' => 'Student coordinator', 'name' => 'Anshul Pawaskar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/anshul-pawaskar.jpg'],
     ['role' => 'Student coordinator', 'name' => 'Keshav Kumar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/keshav-kumar.svg'],
@@ -129,6 +128,7 @@ $industry_speakers = [
 // Scientific programme committee: ['name' => '', 'affiliation' => '', 'url' => '']. 'url' links the name to a profile page.
 $programme_committee = [
     ['name' => 'Prof. Rohan Chinchwadkar', 'affiliation' => 'Associate Professor of Finance, SJMSOM, IIT Bombay', 'url' => 'https://www.som.iitb.ac.in/prof-rohan-chinchwadkar/'],
+    ['name' => 'Prof. Siddhartha Pratim Chakrabarty', 'affiliation' => 'Professor, Department of Mathematics, IIT Guwahati', 'url' => 'https://sites.google.com/site/pratimiitg/'],
 ];
 
 // Conference themes, on the home page and as the call for papers' topics: the title, then the research areas it covers.
