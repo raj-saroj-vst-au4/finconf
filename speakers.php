@@ -27,8 +27,8 @@ function speaker_name(string $name, string $url): string {
 }
 
 $groups = [
-    'academia' => ['Academia speakers', 'Researchers presenting invited talks.', $academia_speakers],
-    'industry' => ['Industry speakers', 'Practitioners presenting invited talks.', $industry_speakers],
+    'academia' => ['Academia speakers', '', $academia_speakers],
+    'industry' => ['Industry speakers', '', $industry_speakers],
 ];
 ?>
     <section class="page-hero" <?= figure_attrs(2) ?> aria-labelledby="page-title">
@@ -62,7 +62,7 @@ $groups = [
                     </article>
                     <?php endforeach; ?>
                 </div>
-                <p class="fine">Keynote topics are indicative. Confirmed lecture details and timings are available in the <a href="<?= e(href('program')) ?>">programme</a>.</p>
+                <p class="fine">Keynote topics are indicative; speaker and lecture details will be announced in due course. Scheduled keynote times are listed in the <a href="<?= e(href('program')) ?>">programme</a>.</p>
             </div>
         </div>
     </section>

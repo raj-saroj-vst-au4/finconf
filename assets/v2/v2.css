@@ -19,7 +19,7 @@
   --gutter:clamp(20px,5vw,72px);
   --wrap:min(1240px,calc(100% - 2 * var(--gutter)));
   --header:76px;
-  --section:clamp(112px,18vh,220px);
+  --section:clamp(72px,11vh,144px);
   /* Contextual colours, swapped inside the ultramarine field. */
   --fg:var(--ink);
   --fg-soft:var(--soft);
@@ -105,10 +105,10 @@ section h2+.lede{margin-top:28px}
 .hero-title:has(+.hero-sub){margin-bottom:clamp(20px,3vh,32px)}
 .hero-sub{margin-bottom:clamp(32px,5vh,56px)}
 .hero-tagline{font:500 clamp(22px,2.4vw,38px)/1.15 var(--serif);letter-spacing:-.01em}
-/* 1.5 times the earlier 14–16px; the partner's name is the bold blue link. */
-.hero-collab{width:fit-content;max-width:100%;margin-top:12px;padding:12px 20px;border-left:4px solid var(--cobalt);border-radius:4px;background:#e8edff;font-size:clamp(21px,1.65vw,24px);line-height:1.35;color:var(--ink)}
-.hero-collab a{color:var(--cobalt);font-weight:700;white-space:nowrap;text-decoration-thickness:1px;text-underline-offset:4px}
+.hero-collab{width:fit-content;max-width:100%;margin-top:9px;padding:9.4px 15.6px;border-left:3px solid var(--cobalt);border-radius:3px;background:#e8edff;font-size:clamp(17.85px,1.4025vw,20.4px);line-height:1.35;color:var(--ink)}
+.hero-collab a{color:var(--cobalt);font-weight:700;white-space:nowrap;text-decoration:none}
 .hero-collab a:hover{color:var(--cobalt-deep)}
+.hero-collab a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 .hero-copy{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) auto;gap:32px clamp(32px,4vw,64px);align-items:end;padding-top:28px;border-top:1px solid var(--line)}
 .hero-lede{font-size:clamp(17px,1.35vw,19px);color:var(--fg-soft);max-width:30em}
 .facts{display:grid;gap:10px;margin:0}
@@ -119,7 +119,9 @@ section h2+.lede{margin-top:28px}
 
 /* About */
 .about{padding:var(--section) 0}
-.themes{max-width:1040px;margin-top:72px}
+.about .column{max-width:none}
+.about .column .lede{max-width:none}
+.themes{max-width:1040px;margin-top:56px}
 .themes-title{margin-bottom:12px;font-size:clamp(24px,2.2vw,30px);line-height:1.2}
 .theme-num{flex:0 0 40px;font:500 14px/1.9 var(--sans);color:var(--accent);font-variant-numeric:tabular-nums}
 .themes summary>span:nth-child(2){flex:1}
@@ -127,7 +129,7 @@ section h2+.lede{margin-top:28px}
 /* Home: the programme in brief, linking to the programme page. */
 .programme-teaser{padding:var(--section) 0}
 .programme-teaser h2{max-width:13em}
-.teaser-days{list-style:none;margin:56px 0 48px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px clamp(32px,4vw,64px)}
+.teaser-days{list-style:none;margin:40px 0 36px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px clamp(32px,4vw,64px)}
 .teaser-days li{padding-top:24px;border-top:1px solid var(--line)}
 .teaser-date{font-size:14px;color:var(--fg-soft)}
 .teaser-days h3{margin:10px 0 4px;font-size:clamp(26px,2.4vw,34px);line-height:1.08}
@@ -136,8 +138,8 @@ section h2+.lede{margin-top:28px}
 
 /* Programme page. The overview draws the three days on one 8 AM–8 PM axis; each day's agenda is a grid of
    5-minute rows, so a block's height is its duration, with parallel tracks side by side as lanes. */
-.overview{padding:clamp(72px,12vh,140px) 0}
-.overview h2{margin-bottom:40px}
+.overview{padding:clamp(56px,8vh,104px) 0}
+.overview h2{margin-bottom:32px}
 .span-chart{--day-col:136px}
 .span-axis{position:relative;height:20px;margin-left:var(--day-col);font-size:13px;color:var(--fg-soft);font-variant-numeric:tabular-nums}
 .span-axis span{position:absolute;left:var(--x);transform:translateX(-50%);white-space:nowrap}
@@ -161,8 +163,8 @@ section h2+.lede{margin-top:28px}
 .span-legend .seg{width:24px;height:14px}
 .overview .fine{max-width:62em;margin-top:24px}
 
-.day{padding-bottom:clamp(64px,10vh,120px)}
-.day-grid{display:grid;grid-template-columns:minmax(0,3.3fr) minmax(0,8.7fr);gap:40px clamp(40px,5vw,80px);align-items:start;padding-top:clamp(48px,8vh,96px);border-top:1px solid var(--line)}
+.day{padding-bottom:clamp(48px,7vh,80px)}
+.day-grid{display:grid;grid-template-columns:minmax(0,3.3fr) minmax(0,8.7fr);gap:32px clamp(40px,5vw,80px);align-items:start;padding-top:clamp(32px,5vh,60px);border-top:1px solid var(--line)}
 .day-head{position:sticky;top:calc(var(--header) + 32px)}
 .day-head h2{display:grid;gap:6px;font-size:inherit;letter-spacing:0}
 .day-label{font-size:clamp(56px,6vw,92px);line-height:.9;letter-spacing:-.03em}
@@ -249,13 +251,13 @@ section h2+.lede{margin-top:28px}
 .schedule-table .is-break td{color:var(--fg-soft)}
 
 /* Inner pages: a shorter hero, then sections with the heading beside the text. */
-.page-hero{min-height:74vh;display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--header) + 48px) 0 clamp(48px,8vh,96px)}
+.page-hero{min-height:60vh;display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--header) + 40px) 0 clamp(40px,6vh,72px)}
 .page-title{font-size:clamp(58px,9.5vw,152px);line-height:.9;letter-spacing:-.035em;font-weight:500;perspective:900px;perspective-origin:30% 50%}
 .page-title .line{display:block}
-.page-intro{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 48px;margin-top:clamp(32px,5vh,56px);padding-top:28px;border-top:1px solid var(--line)}
+.page-intro{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 40px;margin-top:clamp(24px,4vh,44px);padding-top:22px;border-top:1px solid var(--line)}
 .page-intro .lede{max-width:34em}
-.page-section{padding:clamp(72px,11vh,128px) 0}
-.page-section+.page-section .page-grid{padding-top:clamp(40px,6vh,64px);border-top:1px solid var(--line)}
+.page-section{padding:clamp(48px,7vh,88px) 0}
+.page-section+.page-section .page-grid{padding-top:clamp(24px,4vh,44px);border-top:1px solid var(--line)}
 .page-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px clamp(40px,6vw,96px);align-items:start}
 .page-section h2{font-size:clamp(30px,3.2vw,44px);line-height:1.08}
 .prose{max-width:46em;margin:0;font-size:18px;line-height:1.65}
@@ -277,7 +279,7 @@ section h2+.lede{margin-top:28px}
 .journal>div>p+p{margin-top:16px}
 .journal-cover{flex:0 0 auto;width:min(180px,40vw);margin:0}
 .journal-cover img{display:block;width:100%;height:auto;border:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(3,10,60,.45)}
-.facts-list>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);gap:8px 32px;padding:16px 0;border-top:1px solid var(--line)}
+.facts-list>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);gap:8px 32px;padding:12px 0;border-top:1px solid var(--line)}
 .facts-list>div:first-child{border-top:0;padding-top:0}
 .facts-list>div+div{margin-top:0}
 .facts-list dt{font:500 20px/1.35 var(--serif)}
@@ -288,8 +290,8 @@ section h2+.lede{margin-top:28px}
 
 /* Home: links to the inner pages, set like a table of contents. */
 .take-part{padding:0 0 var(--section)}
-.contents{list-style:none;margin:48px 0 0;padding:0;border-top:1px solid var(--line)}
-.contents a{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:8px clamp(32px,5vw,80px);align-items:baseline;padding:28px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:padding .3s cubic-bezier(.2,.7,.2,1)}
+.contents{list-style:none;margin:36px 0 0;padding:0;border-top:1px solid var(--line)}
+.contents a{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:8px clamp(32px,5vw,80px);align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:padding .3s cubic-bezier(.2,.7,.2,1)}
 .contents-name{font:500 clamp(28px,3vw,42px)/1.1 var(--serif);letter-spacing:-.012em}
 .contents-text{color:var(--fg-soft)}
 .contents a:hover{padding-left:16px}
@@ -311,7 +313,7 @@ section h2+.lede{margin-top:28px}
 /* Team */
 .team{padding:var(--section) 0}
 .team ul{list-style:none;margin:0;padding:0}
-.team .faculty{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px clamp(32px,4vw,64px);margin-top:56px}
+.team .faculty{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px clamp(32px,4vw,64px);margin-top:40px}
 .member{display:grid;gap:16px}
 .member-photo{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;background:var(--cobalt)}
 .member h3{font-size:22px;line-height:1.2}
@@ -323,27 +325,39 @@ section h2+.lede{margin-top:28px}
 .member-email{font-size:14px}
 .member-faculty{grid-template-columns:200px 1fr;align-items:end;max-width:640px;gap:28px}
 .member-faculty h3{font-size:clamp(30px,3vw,40px);line-height:1.05}
-.team .students,.team .operations{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px;margin-top:56px}
+.team .students,.team .operations{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;margin-top:40px}
 .team .students{grid-template-columns:repeat(6,minmax(0,1fr));margin-top:32px}
-.team-group{margin-top:80px;padding-top:28px;border-top:1px solid var(--line);font:500 clamp(24px,2.2vw,30px)/1.15 var(--serif)}
+.team-group{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font:500 clamp(24px,2.2vw,30px)/1.15 var(--serif)}
 .team .operations{margin-top:32px}
+.spc-intro{max-width:none}
+.spc-intro h2{font-size:clamp(30px,3.2vw,44px);line-height:1.08}
+.spc-description{margin-top:20px;font-size:17px;line-height:1.65;color:var(--fg-soft)}
+.spc-description a{color:inherit;text-underline-offset:3px}
+.spc-grid{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px clamp(32px,4vw,64px)}
+.spc-member{display:grid;grid-template-columns:minmax(120px,200px) minmax(0,1fr);gap:clamp(18px,2vw,28px);align-items:center}
+.spc-photo{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;background:var(--cobalt)}
+.spc-initials{display:grid;place-items:center;color:var(--paper);font:500 clamp(38px,4vw,56px)/1 var(--serif)}
+.spc-details h3{font:500 clamp(28px,3vw,40px)/1.05 var(--serif);letter-spacing:-.02em}
+.spc-details h3 a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:var(--line)}
+.spc-details h3 a:hover{text-decoration-color:currentColor}
+.spc-details p{margin-top:6px;font-size:14px;line-height:1.5;color:var(--fg-soft)}
 
 /* FAQ */
 .faq{padding:var(--section) 0}
 .faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px clamp(40px,6vw,96px)}
 .faq details,.themes details{border-top:1px solid var(--line)}
 .faq details:last-child,.themes details:last-child{border-bottom:1px solid var(--line)}
-.faq summary,.themes summary{display:flex;justify-content:space-between;gap:24px;padding:24px 0;cursor:pointer;list-style:none;font:500 clamp(21px,1.8vw,25px)/1.25 var(--serif)}
+.faq summary,.themes summary{display:flex;justify-content:space-between;gap:24px;padding:18px 0;cursor:pointer;list-style:none;font:500 clamp(21px,1.8vw,25px)/1.25 var(--serif)}
 .faq summary::-webkit-details-marker,.themes summary::-webkit-details-marker{display:none}
 .faq summary::after,.themes summary::after{content:'+';font:300 28px/1 var(--sans);color:var(--accent);transition:transform .3s}
 .faq details[open] summary::after,.themes details[open] summary::after{transform:rotate(45deg)}
-.faq details p,.themes details p{padding:0 0 28px;max-width:38em;color:var(--fg-soft)}
+.faq details p,.themes details p{padding:0 0 20px;max-width:38em;color:var(--fg-soft)}
 .themes details p{padding-left:64px}
 
 /* Attend and footer */
-.attend{min-height:100vh;display:flex;align-items:center;padding:var(--section) 0}
+.attend{min-height:80vh;display:flex;align-items:center;padding:var(--section) 0}
 .attend-title{font-size:clamp(58px,10vw,164px);line-height:.88;letter-spacing:-.035em;max-width:7em}
-.attend-copy{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:32px 48px;align-items:end;margin-top:clamp(40px,6vh,64px);padding-top:28px;border-top:1px solid var(--line)}
+.attend-copy{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:28px 40px;align-items:end;margin-top:clamp(32px,4.5vh,52px);padding-top:22px;border-top:1px solid var(--line)}
 .attend-when{font:500 20px/1.35 var(--serif)}
 .footer{padding:40px 0 48px;border-top:1px solid var(--line)}
 .footer-grid{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
@@ -385,6 +399,7 @@ body.dialog-open{overflow:hidden}
   .day-grid{grid-template-columns:1fr}
   .day-head{position:static}
   .team .faculty{grid-template-columns:minmax(0,1fr)}
+  .spc-grid{grid-template-columns:1fr}
   .venue-grid,.faq-grid,.page-grid{grid-template-columns:1fr}
   .contents a{grid-template-columns:1fr}
 }
@@ -418,6 +433,7 @@ body.dialog-open{overflow:hidden}
   .themes details p{padding-left:34px}
   .team .students,.team .operations{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
   .member-faculty{grid-template-columns:120px 1fr;gap:18px}
+  .spc-member{grid-template-columns:120px minmax(0,1fr);gap:18px}
 }
 @media (prefers-reduced-motion:reduce){
   .speaker-portrait{transition:none}

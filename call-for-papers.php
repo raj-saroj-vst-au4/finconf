@@ -8,7 +8,7 @@ page_start('papers', 'Call for papers — QRD 2027, IIT Bombay',
         <div class="wrap">
             <h1 id="page-title" class="page-title" data-split><span class="line">Call for papers</span></h1>
             <div class="page-intro">
-                <p class="lede">Present your research as a contributed talk or a poster at QRD 2027, the Conference on Quant, Risk &amp; Data. Conference papers are due by 20 December 2026; poster abstracts by 15 January 2027.</p>
+                <p class="lede">Present your research as a contributed talk or poster at QRD 2027, the Conference on Quant, Risk &amp; Data. Conference papers are due by 20 December 2026; poster abstracts are due by 15 January 2027.</p>
                 <div class="actions"><?= action_button($submission_form_url, 'Submit a paper', 'submission') ?><a class="pill pill-line" href="#posters">Call for posters</a></div>
             </div>
         </div>
@@ -18,8 +18,8 @@ page_start('papers', 'Call for papers — QRD 2027, IIT Bombay',
         <div class="wrap page-grid">
             <h2 id="general-title">General information</h2>
             <div class="prose">
-                <p>We invite papers for contributed talks and poster presentations at QRD 2027: a day of pre-conference workshops, followed by two days of keynotes, parallel technical sessions, paper presentations, and poster sessions.</p>
-                <p>A scientific programme committee reviews every submission, decides whether it is accepted, and allocates it to a talk or a poster session. Its decision is final.</p>
+                <p>We invite submissions for contributed talks and poster presentations at QRD 2027. The programme comprises a day of pre-conference workshops, followed by two days of keynotes, parallel technical sessions, paper presentations, and poster sessions.</p>
+                <p>The scientific programme committee reviews each submission, determines whether it is accepted, and assigns accepted work to an oral or poster session. The committee's decisions are final.</p>
 
                 <h3>Conference themes</h3>
                 <dl class="facts-list facts-stack">
@@ -30,7 +30,7 @@ page_start('papers', 'Call for papers — QRD 2027, IIT Bombay',
 
                 <h3>Key dates</h3>
                 <table class="data-table" aria-label="Key dates">
-                    <thead><tr><th scope="col">Milestone</th><th scope="col">Date</th></tr></thead>
+                    <thead><tr><th scope="col">Activity</th><th scope="col">Date</th></tr></thead>
                     <tbody>
                         <?php foreach (['submission', 'decision', 'poster', 'poster_decision', 'early', 'registration', 'conference'] as $key): [$label, $when] = $dates[$key]; ?>
                         <tr><th scope="row"><?= e($label) ?></th><?= cell($when) ?></tr>
@@ -41,8 +41,8 @@ page_start('papers', 'Call for papers — QRD 2027, IIT Bombay',
                 <h3>Journal publication</h3>
                 <div class="journal">
                     <div>
-                        <p>Conference participants are encouraged to submit their work to the journal <a href="<?= e($journal_url) ?>" target="_blank" rel="noopener noreferrer"><cite><?= e($journal_name) ?></cite><span class="visually-hidden"> (opens in a new tab)</span></a> (ASMBI). This peer-reviewed Wiley journal is at the interface of stochastic modelling, data analysis and their applications in business, finance, insurance, management and production.</p>
-                        <p>As the official journal of the <a href="https://isbis-isi.org/isbis/" target="_blank" rel="noopener noreferrer">International Society for Business and Industrial Statistics<span class="visually-hidden"> (opens in a new tab)</span></a>, ASMBI publishes articles which are mathematically rigorous, featuring innovative stochastic modelling and sound applications from business and industry. The journal also welcomes suitable submissions to the Practitioner’s Corner or the Section on Data Science in Business and Industry.</p>
+                        <p>Conference participants are encouraged to submit their work to the journal <a href="<?= e($journal_url) ?>" target="_blank" rel="noopener noreferrer"><cite><?= e($journal_name) ?></cite><span class="visually-hidden"> (opens in a new tab)</span></a> (ASMBI). This peer-reviewed Wiley journal brings together stochastic modelling and data analysis, with applications in business, finance, insurance, management, and production.</p>
+                        <p>As the official journal of the <a href="https://isbis-isi.org/isbis/" target="_blank" rel="noopener noreferrer">International Society for Business and Industrial Statistics<span class="visually-hidden"> (opens in a new tab)</span></a>, ASMBI publishes mathematically rigorous articles featuring innovative stochastic modelling and sound applications in business and industry. The journal also welcomes suitable submissions for the Practitioner’s Corner and the Section on Data Science in Business and Industry.</p>
                         <p>For more details, see the <a href="<?= e($journal_url) ?>" target="_blank" rel="noopener noreferrer">journal’s page on Wiley Online Library<span class="visually-hidden"> (opens in a new tab)</span></a>.</p>
                     </div>
                     <?php if ($journal_cover !== '' && is_file(__DIR__.'/'.$journal_cover)): ?>
@@ -60,11 +60,11 @@ page_start('papers', 'Call for papers — QRD 2027, IIT Bombay',
                 <h3>How to submit</h3>
                 <ol>
                     <li>Prepare your paper as a PDF.</li>
-                    <li>If your work uses code, publish it on GitHub or another public repository, and give the link in the paper.</li>
+                    <li>If your paper includes code, publish it on GitHub or another public repository and include the link in your paper.</li>
                     <li>Upload the PDF through the Google Form.</li>
                 </ol>
                 <div class="actions"><?= action_button($submission_form_url, 'Submit a paper', 'submission') ?></div>
-                <p class="fine"><?= $submission_form_url === '' ? 'The submission form opens when the call is announced.' : 'The Google Form opens in a new tab. Deadline: 20 December 2026.' ?></p>
+                <p class="fine"><?= $submission_form_url === '' ? 'The submission form will be linked here once submissions open.' : 'The Google Form opens in a new tab. The submission deadline is 20 December 2026.' ?></p>
 
                 <h3 id="advice">Before you submit</h3>
                 <ol type="a">
@@ -80,7 +80,7 @@ page_start('papers', 'Call for papers — QRD 2027, IIT Bombay',
         <div class="wrap page-grid">
             <h2 id="presentation-title">Paper presentation</h2>
             <div class="prose">
-                <p>Accepted papers are presented as contributed talks in the parallel technical sessions on Friday 5 and Saturday 6 March, where three tracks run side by side in 45-minute sessions, and in the parallel paper presentation sessions on the afternoon of Saturday 6 March. The scientific programme committee allocates each paper to a session; the schedule is in the <a href="<?= e(href('program')) ?>">programme</a>.</p>
+                <p>Accepted papers will be presented as contributed talks during the parallel technical sessions on Friday 5 and Saturday 6 March. Three tracks will run concurrently, with 45 minutes allocated to each session. Additional parallel paper-presentation sessions are scheduled for Saturday afternoon. The scientific programme committee will assign each accepted paper to a session; see the <a href="<?= e(href('program')) ?>">programme</a> for the schedule.</p>
                 <p><strong>Contributed talks are for unpublished work only.</strong> A paper that has already been published can be presented only as a poster: see the <a href="#posters">poster presentation</a> section below.</p>
                 <p>Conference registration covers oral paper presentations. Fees and deadlines are on the <a href="<?= e(href('registration')) ?>">registration</a> page.</p>
             </div>
@@ -91,8 +91,8 @@ page_start('papers', 'Call for papers — QRD 2027, IIT Bombay',
         <div class="wrap page-grid">
             <h2 id="posters-title">Poster presentation</h2>
             <div class="prose">
-                <p>The Organising Committee invites researchers, academicians, doctoral scholars, postgraduate students, and industry professionals to submit original research abstracts for poster presentations.</p>
-                <p>Poster submissions are welcome across all conference themes, including mathematical finance, financial econometrics, market microstructure, quantitative trading, portfolio optimisation, risk management, and computational intelligence in finance. Presenters are required to bring a printed copy of their poster to the conference.</p>
+                <p>The Organising Committee invites researchers, academics, doctoral scholars, postgraduate students, and industry professionals to submit abstracts of original research for poster presentation.</p>
+                <p>Poster abstracts are welcome across all conference themes, including mathematical finance, financial econometrics, market microstructure, quantitative trading, portfolio optimisation, risk management, and computational intelligence in finance. Presenters must bring a printed copy of their poster to the conference.</p>
                 <div class="actions"><?= action_button($poster_form_url, 'Submit a poster abstract', 'submission') ?></div>
 
                 <h3>Guidelines</h3>
@@ -101,11 +101,11 @@ page_start('papers', 'Call for papers — QRD 2027, IIT Bombay',
                     <li><?= e($guideline) ?></li>
                     <?php endforeach; ?>
                 </ul>
-                <p class="fine">Further instructions on formatting and presentation will be communicated to accepted authors.</p>
+                <p class="fine">Further instructions on formatting and presentation will be provided to authors of accepted abstracts.</p>
 
                 <h3>Important dates</h3>
                 <table class="data-table" aria-label="Important dates for poster presentations">
-                    <thead><tr><th scope="col">Milestone</th><th scope="col">Date</th></tr></thead>
+                    <thead><tr><th scope="col">Activity</th><th scope="col">Date</th></tr></thead>
                     <tbody>
                         <?php foreach ($poster_dates as [$label, $when]): ?>
                         <tr><th scope="row"><?= e($label) ?></th><?= cell($when) ?></tr>

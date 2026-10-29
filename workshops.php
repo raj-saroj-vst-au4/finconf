@@ -3,13 +3,13 @@ require __DIR__.'/includes/site.php';
 
 $day = $days[0];
 page_start('workshops', 'Workshops — QRD 2027, IIT Bombay',
-    'Pre-conference workshops at QRD 2027 on Thursday 4 March 2027 at VMCC, IIT Bombay: high-frequency trading (HFT) and derivative pricing, run side by side.');
+    'Two pre-conference workshops at QRD 2027 on Thursday 4 March 2027 at VMCC, IIT Bombay: one on high-frequency trading (HFT) and the other on derivative pricing. The workshops run concurrently.');
 ?>
     <section class="page-hero" <?= figure_attrs(1) ?> aria-labelledby="page-title">
         <div class="wrap">
             <h1 id="page-title" class="page-title" data-split><span class="line">Workshops</span></h1>
             <div class="page-intro">
-                <p class="lede">Two pre-conference workshops open QRD 2027 on Thursday 4 March, one on high-frequency trading and one on derivative pricing. They run side by side on the same schedule, so register for one of them.</p>
+                <p class="lede">The QRD 2027 pre-conference programme begins on Thursday 4 March with two workshops: one on high-frequency trading and the other on derivative pricing. They run concurrently in separate halls, so participants should register for one workshop only.</p>
                 <div class="actions"><?= action_button($registration_url, 'Register', 'registration') ?><a class="pill pill-line" href="#schedule">Schedule</a></div>
             </div>
         </div>
@@ -20,8 +20,8 @@ page_start('workshops', 'Workshops — QRD 2027, IIT Bombay',
             <h2 id="when-title">Date and venue</h2>
             <dl class="prose facts-list">
                 <div><dt>Date</dt><dd><?= e($day['label']) ?>, <?= e($day['date']) ?> 2027, <?= e(day_hours($day)) ?></dd></div>
-                <div><dt>Venue</dt><dd>Victor Menezes Convention Centre (VMCC), IIT Bombay, Powai, Mumbai. Directions are on the <a href="<?= e(href('venue')) ?>">venue</a> page.</dd></div>
-                <div><dt>Format</dt><dd>Two workshops in parallel. Each has lectures from 10 AM to 1 PM, lunch from 1 PM to 2 PM, then a hands-on session from 2 PM to 5 PM, with a 15-minute tea break in each half.</dd></div>
+                <div><dt>Venue</dt><dd>Victor Menezes Convention Centre (VMCC), IIT Bombay, Powai, Mumbai. Directions are available on the <a href="<?= e(href('venue')) ?>">venue</a> page.</dd></div>
+                <div><dt>Format</dt><dd>Two workshops running in parallel.</dd></div>
             </dl>
         </div>
     </section>
@@ -62,7 +62,7 @@ page_start('workshops', 'Workshops — QRD 2027, IIT Bombay',
         <div class="wrap page-grid">
             <h2 id="schedule-title">Schedule</h2>
             <div class="prose">
-                <p>Both workshops follow the same timetable, in separate halls.</p>
+                <p>Both workshops follow the same timetable and take place in separate halls.</p>
                 <table class="data-table schedule-table" aria-label="Workshop schedule, <?= e($day['date']) ?> 2027">
                     <thead><tr><th scope="col">Time</th><th scope="col">Session</th></tr></thead>
                     <tbody>
@@ -89,7 +89,7 @@ page_start('workshops', 'Workshops — QRD 2027, IIT Bombay',
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <p class="fine">All fees are exclusive of GST. Conference and poster fees and deadlines are on the <a href="<?= e(href('registration')) ?>">registration</a> page; accommodation is on the <a href="<?= e(href('venue')) ?>">Venue &amp; Contact</a> page.</p>
+                <p class="fine">All fees are exclusive of GST. </p>
             </div>
         </div>
     </section>

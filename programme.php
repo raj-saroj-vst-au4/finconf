@@ -2,7 +2,7 @@
 require __DIR__.'/includes/site.php';
 
 page_start('program', 'Programme — QRD 2027, IIT Bombay',
-    'The programme of QRD 2027, the Conference on Quant, Risk & Data: pre-conference workshops on Thursday 4 March, then keynotes, parallel sessions, poster presentations, a panel discussion, and evening events on 5–6 March 2027 at VMCC, IIT Bombay.');
+    'The QRD 2027 programme includes pre-conference workshops on Thursday 4 March, followed by keynotes, parallel sessions, poster presentations, a panel discussion, and evening events on 5–6 March 2027 at VMCC, IIT Bombay.');
 
 // The overview chart runs from 8 AM to 8 PM to include evening events; each agenda uses 5-minute rows.
 $chart_from = minutes('08:00');
@@ -49,7 +49,7 @@ $parallel = ['workshop', 'session'];
                     <li><span class="seg seg-break"></span>Registration and breaks</li>
                 </ul>
             </div>
-            <p class="fine">Each parallel technical session and paper-presentation slot will feature three concurrent sessions conducted in separate halls (Tracks A, B, and C). Tea and coffee breaks are included between sessions and during transitions to ensure sufficient time for networking and movement between venues.</p>
+            <p class="fine">Each parallel technical session and paper-presentation slot comprises three concurrent presentations in separate halls (Tracks A, B, and C). Tea and coffee breaks are scheduled between sessions and during transitions, allowing time for networking and movement between venues.</p>
         </div>
     </section>
 

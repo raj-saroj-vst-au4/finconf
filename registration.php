@@ -8,7 +8,7 @@ page_start('registration', 'Registration — QRD 2027, IIT Bombay',
         <div class="wrap">
             <h1 id="page-title" class="page-title" data-split><span class="line">Registration</span></h1>
             <div class="page-intro">
-                <p class="lede"><?= $registration_url === '' ? 'Registration has not opened yet. Fees and deadlines are below; the registration link will be added here when registration opens.' : 'Registration is open. Check the fees and key dates below, then register through the link.' ?></p>
+                <p class="lede"><?= $registration_url === '' ? 'Registration has not opened yet. Fees and deadlines are listed below; a registration link will be added when registration opens.' : 'Registration is open. Review the fees and key dates below, then register using the link.' ?></p>
                 <div class="actions"><?= action_button($registration_url, 'Register', 'registration') ?></div>
             </div>
         </div>
@@ -30,7 +30,7 @@ page_start('registration', 'Registration — QRD 2027, IIT Bombay',
             <div class="prose">
                 <p>These rates cover the two main conference days and oral paper presentations. All fees are exclusive of GST.</p>
                 <table class="data-table" aria-label="Conference registration fees by category">
-                    <thead><tr><th scope="col">Category</th><th scope="col">Early bird</th><th scope="col">Regular</th></tr></thead>
+                    <thead><tr><th scope="col">Category</th><th scope="col">Early-bird</th><th scope="col">Regular</th></tr></thead>
                     <tbody>
                         <?php foreach ($fees as [$category, $early, $regular]): ?>
                         <tr><th scope="row"><?= e($category) ?></th><?= cell($early).cell($regular) ?></tr>
@@ -53,7 +53,7 @@ page_start('registration', 'Registration — QRD 2027, IIT Bombay',
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <p><strong>Important:</strong> poster registration includes entry to both main conference days, lunch, refreshments, and a participation/presentation certificate. Participants already registered for the main conference should <strong>not</strong> pay an additional poster fee.</p>
+                <p><strong>Important:</strong> Poster registration includes admission to both main conference days, lunch, refreshments, and a certificate of participation or presentation. Participants already registered for the main conference should <strong>not</strong> pay an additional poster fee.</p>
                 <p class="fine">Presenters are required to bring a printed copy of their poster to the conference.</p>
             </div>
         </div>
@@ -72,7 +72,6 @@ page_start('registration', 'Registration — QRD 2027, IIT Bombay',
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <p class="fine">No booking or payment is taken on this site<?= $registration_url === '' ? ' yet' : '; registration opens on a separate page' ?>.</p>
             </div>
         </div>
     </section>

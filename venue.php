@@ -8,7 +8,7 @@ page_start('venue', 'Venue & Contact — QRD 2027, IIT Bombay',
         <div class="wrap">
             <h1 id="page-title" class="page-title" data-split><span class="line">Venue &amp; Contact</span></h1>
             <div class="page-intro">
-                <p class="lede">The conference takes place at the Victor Menezes Convention Centre (VMCC), on the IIT Bombay campus in Powai, Mumbai. Below: getting there, accommodation, and how to reach the organisers.</p>
+                <p class="lede">The conference takes place at the Victor Menezes Convention Centre (VMCC), on the IIT Bombay campus in Powai, Mumbai. This page provides travel directions, accommodation information, and contact details for the organisers.</p>
                 <div class="actions"><a class="pill pill-line" href="#stay">Accommodation</a><a class="pill pill-line" href="#contact">Contact</a></div>
             </div>
         </div>
@@ -44,7 +44,7 @@ page_start('venue', 'Venue & Contact — QRD 2027, IIT Bombay',
         <div class="wrap page-grid">
             <h2 id="stay-title">Accommodation</h2>
             <div class="prose">
-                <p>Accommodation options, including any on-campus accommodation for students and nearby hotels, will be announced by the organisers.</p>
+                <p>Accommodation options, including on-campus accommodation for students and nearby hotels, will be announced by the organisers.</p>
                 <p>Fees and registration dates are on the <a href="<?= e(href('registration')) ?>">registration</a> page.</p>
             </div>
         </div>
@@ -55,8 +55,8 @@ page_start('venue', 'Venue & Contact — QRD 2027, IIT Bombay',
             <h2 id="contact-title">Contact</h2>
             <dl class="prose facts-list">
                 <div><dt>Email</dt><dd><a href="mailto:<?= e($contact_email) ?>"><?= e($contact_email) ?></a></dd></div>
-                <div><dt>Write to us about</dt><dd>Any questions or issues: paper and poster submissions, registration and payment, the workshops, travel, or accommodation.</dd></div>
-                <div><dt>Organisers</dt><dd>Citadel Lab, IIT Bombay, jointly with RTQF, IISc Bangalore. See the <a href="<?= e(href('committees')) ?>">committees</a>.</dd></div>
+                <div><dt>Write to us about</dt><dd>Questions about paper or poster submissions, registration and payment, workshops, travel, or accommodation.</dd></div>
+                <div><dt>Organisers</dt><dd>IITB-Citadel Securities Quantitative Research Lab, IIT Bombay, jointly with RTQF, IISc Bangalore. See the <a href="<?= e(href('committees')) ?>">committees</a>.</dd></div>
             </dl>
         </div>
     </section>

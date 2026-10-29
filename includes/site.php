@@ -33,7 +33,7 @@ $workshops = [
 // no lane titles are given). Session titles and speakers will be announced.
 $days = [
     ['label' => 'Day 1', 'date' => 'Thursday 4 March', 'short' => 'Thu 4 Mar', 'theme' => 'Pre-conference workshops',
-        'description' => 'Two workshops run side by side on the same schedule, on high-frequency trading and on derivative pricing',
+        'description' => 'Two workshops—one on high-frequency trading and one on derivative pricing—run concurrently on the same schedule. Participants can register for only one workshop.',
         'lanes' => array_map(fn($w) => [$w['track'], $w['title']], $workshops),
         'slots' => [
             ['09:30', '10:00', 'break', 'Registration'],
@@ -46,10 +46,11 @@ $days = [
             ['15:45', '17:00', 'workshop', 'Hands-on Session, Part II', ['Hands-on Session – Part II', 'Hands-on Session – Part II']],
         ]],
     ['label' => 'Day 2', 'date' => 'Friday 5 March', 'short' => 'Fri 5 Mar', 'theme' => 'Main conference',
-        'description' => 'Opening remarks and a keynote, Sessions 1–5 (including paper presentations in Session 5), posters over lunch and tea, a panel discussion, a cultural event, and dinner.',
+        'description' => 'The first keynote, four parallel technical session slots, poster presentations during lunch and tea breaks, a parallel paper presentation session, a panel discussion, a cultural event, and a gala dinner.',
+        'display_end' => '17:30',
         'lanes' => [['Track A', ''], ['Track B', ''], ['Track C', '']],
         'slots' => [
-            ['08:30', '09:00', 'break', 'Breakfast & Registration'],
+            ['08:30', '09:00', 'break', 'High Tea & Registration'],
             ['09:00', '09:30', 'plenary', 'Opening Remarks'],
             ['09:30', '10:30', 'keynote', 'Keynote Address I'],
             ['10:30', '11:15', 'session', 'Parallel Technical Sessions 1'],
@@ -65,36 +66,36 @@ $days = [
             ['19:30', '22:00', 'break', 'Gala Dinner', [], '7:30 PM onwards'],
         ]],
     ['label' => 'Day 3', 'date' => 'Saturday 6 March', 'short' => 'Sat 6 Mar', 'theme' => 'Main conference',
-        'description' => 'The second keynote, Sessions 6–9, two paper-presentation slots, lunch, and the valedictory session. Startups are also noted; their timing is to be confirmed.',
+        'description' => 'The second keynote, four parallel technical session slots, poster presentations during lunch and tea breaks, two slots of parallel paper presentation sessions, and the valedictory session.',
         'lanes' => [['Track A', ''], ['Track B', ''], ['Track C', '']],
         'slots' => [
-            ['09:00', '09:30', 'break', 'Breakfast'],
+            ['09:00', '09:30', 'break', 'High Tea'],
             ['09:30', '10:30', 'keynote', 'Keynote Address II'],
             ['10:30', '11:15', 'session', 'Parallel Technical Sessions 6'],
             ['11:15', '11:45', 'break', 'Tea Break'],
             ['11:45', '12:30', 'session', 'Parallel Technical Sessions 7'],
             ['12:30', '13:00', 'session', 'Parallel Technical Sessions 8'],
-            ['13:00', '14:30', 'break', 'Lunch'],
+            ['13:00', '14:30', 'posters', 'Lunch & Poster Presentations'],
             ['14:30', '15:15', 'session', 'Parallel Technical Sessions 9'],
-            ['15:15', '16:00', 'session', 'Paper Presentations'],
-            ['16:00', '16:30', 'break', 'Tea'],
-            ['16:30', '17:15', 'session', 'Paper Presentations'],
-            ['17:15', '17:30', 'plenary', 'Valedictory Session', [], '5:15 PM onwards'],
+            ['15:15', '16:00', 'session', 'Paper Presentation Session 10'],
+            ['16:00', '16:30', 'posters', 'Tea & Poster Presentations'],
+            ['16:30', '17:15', 'session', 'Paper Presentation Session 11'],
+            ['17:15', '17:30', 'plenary', 'Valedictory Session'],
         ]],
 ];
 // Organising committee. 'url' links the photo and name to a profile page; leave it empty until there is one.
 // Replace the placeholder SVGs in assets/images/team/ with real photos (same file name, or update 'photo').
 // In 'affiliation', a semicolon starts a new line.
 $team = [
-    ['role' => 'Faculty Chair', 'name' => 'Prof. Sudeep R. Bapat', 'affiliation' => 'PIC, IITB-Citadel Securities Quantitative Research Lab; Assistant Professor, SJMSOM', 'email' => '', 'url' => 'https://sites.google.com/view/srbapat/home', 'photo' => 'assets/images/team/sudeep-bapat.jpg'],
-    ['role' => 'Faculty Co-Chair', 'name' => 'Prof. Piyush Pandey', 'affiliation' => 'Assistant Professor, SJMSOM', 'email' => '', 'url' => 'https://sites.google.com/iitb.ac.in/prof-piyush-pandey/home', 'photo' => 'assets/images/team/piyush-pandey.jpg'],
+    ['role' => 'Faculty Chair', 'name' => 'Prof. Sudeep R. Bapat', 'affiliation' => 'PIC, IITB-Citadel Securities Quantitative Research Lab; Assistant Professor, SJMSOM, IIT Bombay', 'email' => '', 'url' => 'https://sites.google.com/view/srbapat/home', 'photo' => 'assets/images/team/sudeep-bapat.jpg'],
+    ['role' => 'Faculty Co-Chair', 'name' => 'Prof. Piyush Pandey', 'affiliation' => 'Assistant Professor, SJMSOM, IIT Bombay', 'email' => '', 'url' => 'https://sites.google.com/iitb.ac.in/prof-piyush-pandey/home', 'photo' => 'assets/images/team/piyush-pandey.jpg'],
     ['role' => 'Faculty member', 'name' => 'Prof. Shashi Jain', 'affiliation' => 'Associate Professor, Department of Management Studies, IISc Bangalore', 'email' => '', 'url' => 'https://scholar.google.com/citations?user=TA9NeywAAAAJ&hl=en', 'photo' => 'assets/images/team/Shashi-Jain.jpg'],
     ['role' => '', 'name' => 'Aryan Bhambu', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://github.com/aryanbhambu', 'photo' => 'assets/images/team/aryan-bhambu.jpeg'],
     ['role' => '', 'name' => 'Koushik Bera', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://kberaml.github.io/', 'photo' => 'assets/images/team/koushik-bera.jpg'],
     ['role' => '', 'name' => 'Salam Rabindrajit Luwang', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://srabindrajitluwang.github.io/index.html', 'photo' => 'assets/images/team/salam-rabindrajit-luwang.jpg'],
-    ['role' => '', 'name' => 'Anshul Pawaskar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/anshul-pawaskar.jpg'],
-    ['role' => '', 'name' => 'Jyoti Pandey', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/jyoti-pandey.svg'],
-    ['role' => '', 'name' => 'Keshav Kumar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/keshav-kumar.svg'],
+    ['role' => '', 'name' => 'Anshul Pawaskar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => 'https://www.linkedin.com/in/anshulpawaskar/', 'photo' => 'assets/images/team/Anshul-Pawaskar.png'],
+    ['role' => '', 'name' => 'Jyoti Pandey', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => 'https://www.linkedin.com/in/jyoti-p-b7b8b3218/', 'photo' => 'assets/images/team/Jyoti-Pandey.jpeg'],
+    ['role' => '', 'name' => 'Keshav Kumar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => 'https://www.linkedin.com/in/keshavkumar2021/', 'photo' => 'assets/images/team/Keshav-Kumar.jpeg'],
 ];
 $faculty = array_values(array_filter($team, fn($m) => str_starts_with($m['role'], 'Faculty')));
 $students = array_values(array_filter($team, fn($m) => !str_starts_with($m['role'], 'Faculty')));
@@ -119,13 +120,13 @@ $academia_speakers = [
     ['name' => 'Joshy Jacob', 'affiliation' => 'IIM Ahmedabad', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Joshy-Jacob.jpeg', 'url' => 'https://www.iima.ac.in/faculty-research/faculty-directory/joshy-jacob'],
     ['name' => 'Nirupama Kulkarni', 'affiliation' => 'CAFRAL', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Nirupama-Kulkarni.jpg', 'url' => 'https://www.nirupamakulkarni.com/'],
     ['name' => 'Samarpan Nawn', 'affiliation' => 'IIM Udaipur', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Samarpan-Nawn.jpg', 'url' => 'https://faculty.iimu.ac.in/directory/samarpan-nawn/'],
-    ['name' => 'Sandeep Juneja', 'affiliation' => 'Ashoka University', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Sandeep-Juneja.jpg', 'url' => 'https://www.ashoka.edu.in/profile/sandeep-juneja/'],
+    ['name' => 'Sandeep Juneja', 'affiliation' => 'Ashoka University', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Sandeep-Juneja.jpeg', 'url' => 'https://www.ashoka.edu.in/profile/sandeep-juneja/'],
     ['name' => 'Sourav Majumdar', 'affiliation' => 'IIT Kanpur', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Sourav-Majumdar.jpg', 'url' => 'https://iitk.ac.in/sourav-majumdar'],
 ];
 $industry_speakers = [
     ['name' => 'Deep Narayan Mukherjee', 'affiliation' => 'Boston Consulting Group', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Deep-Narayan.jpeg', 'url' => 'https://www.linkedin.com/in/deep-narayan-35729822'],
     ['name' => 'Eshan Ahluwalia', 'affiliation' => 'BlackRock', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Eshan-Ahluwalia.jpg', 'url' => 'https://scholar.google.com/citations?user=TQvvgzIAAAAJ&hl=en'],
-    ['name' => 'Lokesh Mrig', 'affiliation' => 'State Street Investment Management', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Lokesh-Mrig.jpeg', 'url' => 'https://in.linkedin.com/in/lokesh-mrig'],
+    ['name' => 'Lokesh Mrig', 'affiliation' => 'State Street Investment Management', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Lokesh-Mrig.png', 'url' => 'https://in.linkedin.com/in/lokesh-mrig'],
     ['name' => 'Parijat Garg', 'affiliation' => 'Perivis', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Parijat-Garg.jpeg', 'url' => 'https://in.linkedin.com/in/parijatgarg'],
     ['name' => 'Pawel Brzozowski', 'affiliation' => 'IMC Trading', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Pawel-Brzozowski.jpeg', 'url' => 'https://www.linkedin.com/in/brzozowskipawel'],
     ['name' => 'Rishi Kohli', 'affiliation' => 'Jio BlackRock', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Rishi-Kohli.jpeg', 'url' => 'https://in.linkedin.com/in/rishi-kohli-b8a37518'],
@@ -133,17 +134,17 @@ $industry_speakers = [
 
 // Scientific programme committee: ['name' => '', 'affiliation' => '', 'url' => '']. 'url' links the name to a profile page.
 $programme_committee = [
-    ['name' => 'Prof. Rohan Chinchwadkar', 'affiliation' => 'Associate Professor of Finance, SJMSOM, IIT Bombay', 'url' => 'https://www.som.iitb.ac.in/prof-rohan-chinchwadkar/'],
-    ['name' => 'Prof. Siddhartha Pratim Chakrabarty', 'affiliation' => 'Professor, Department of Mathematics, IIT Guwahati', 'url' => 'https://sites.google.com/site/pratimiitg/'],
+    ['name' => 'Prof. Rohan Chinchwadkar', 'affiliation' => 'Associate Professor of Finance, SJMSOM, IIT Bombay', 'url' => 'https://www.som.iitb.ac.in/prof-rohan-chinchwadkar/', 'photo' => 'assets/images/team/Rohan-Chinchwadkar.jpeg', 'initials' => 'RC'],
+    ['name' => 'Prof. Siddhartha Pratim Chakrabarty', 'affiliation' => 'Professor, Department of Mathematics, IIT Guwahati', 'url' => 'https://sites.google.com/site/pratimiitg/', 'photo' => 'assets/images/team/spc.jpg', 'initials' => 'SC'],
 ];
 
 // Conference themes, on the home page and as the call for papers' topics: the title, then the research areas it covers.
 $themes = [
-    ['Stochastic Modelling, Derivative Markets, and Financial Engineering', 'Stochastic calculus, derivative valuation, rough volatility, structured products, pricing techniques.'],
-    ['Financial Econometrics, Statistical Learning, and Time Series Analysis', 'Econometric forecasting, volatility estimation, high-dimensional statistics, causal inference, regime switching, time series.'],
-    ['Market Microstructure, High-Frequency and Quantitative Trading', 'Order book dynamics, market making, liquidity modelling, execution strategies, algorithmic trading.'],
+    ['Stochastic Modelling, Derivative Markets, and Financial Engineering', 'Stochastic calculus, derivative valuation, rough volatility, structured products, and pricing techniques.'],
+    ['Financial Econometrics, Statistical Learning, and Time Series Analysis', 'Econometric forecasting, volatility estimation, high-dimensional statistics, causal inference, regime switching, and time-series analysis.'],
+    ['Market Microstructure, High-Frequency and Quantitative Trading', 'Order-book dynamics, market making, liquidity modelling, execution strategies, and algorithmic trading.'],
     ['Portfolio Optimisation, Asset Pricing, and Quantitative Investment Strategies', 'Factor investing, asset allocation, robust portfolios, systematic investing, stochastic optimisation, investment decision-making.'],
-    ['Computational Intelligence and High-Performance Computing in Finance', 'Deep learning, LLMs, reinforcement learning, Monte Carlo methods, GPU computing, quantum finance.'],
+    ['Computational Intelligence and High-Performance Computing in Finance', 'Deep learning, large language models, reinforcement learning, Monte Carlo methods, GPU computing, and quantum finance.'],
     ['Risk Modelling, Financial Stability, and Emerging Market Dynamics', 'Tail risk, systemic risk, financial regulation, Indian markets, climate finance, FinTech, and digital assets.'],
 ];
 // Deadlines and important dates. Pages pick the rows they need by key.
@@ -159,22 +160,22 @@ $dates = [
 $advice = [
     'Choose an informative title.',
     'Number the main sections so you can refer to them: “see Section 4”, “as explained in Section 1”.',
-    'Run a spell checker. Spelling mistakes distract reviewers and weaken the impact of your paper.',
-    'Keep sentences short; more than twenty words is usually too long. Write in the active voice and the present tense.',
+    'Run a spell-checker. Spelling mistakes distract reviewers and weaken the impact of your paper.',
+    'Keep sentences concise; sentences longer than twenty words can be difficult to follow. Use the active voice and present tense.',
     'Read your paper aloud to find where sentences should end.',
     'Use paragraphs to group sentences on the same theme.',
-    'Include only the tables and figures that matter, and discuss each one in the text: what does it show? Give each a number and a caption that says exactly what it contains. R’s ggplot2 makes clear plots.',
+    'Include only relevant tables and figures, and discuss each one in the text. Explain what it shows, and give it a number and a caption that describes its contents. R’s ggplot2 package can help you create clear plots.',
     'Explain the problem and why it matters in finance or economics, including its wider social and economic impact.',
     'Explain the statistical method you used and compare your results with benchmark models.',
 ];
 
 // Call for poster presentations.
 $poster_guidelines = [
-    'Structured research abstract: 350–500 words.',
-    'Posters must be prepared in A0 size, in portrait orientation.',
+    'Prepare a structured research abstract of 350–500 words.',
+    'Prepare posters on A0 paper in portrait orientation.',
     'Previously published papers may be presented as posters (but not as contributed talks).',
     'The abstract must include the research problem, objectives, methodology, key findings, and original contribution.',
-    'Preliminary or completed research results are expected.',
+    'Abstracts should report preliminary or completed research results.',
     'Submissions will undergo scientific review by the conference committee.',
     'Accepted posters will be presented during designated poster sessions, over lunch on Days 2 and 3.',
     'Selected posters may be considered for Best Poster Presentation Awards.',
@@ -195,31 +196,31 @@ $journal_cover = 'assets/images/asmbi-cover.jpg';   // shown once the file exist
 // Registration fees: [category, early bird, regular]. Main conference days and oral paper presentations.
 $fees = [
     ['UG / PG / PhD Scholars', '₹2,500', '₹3,000'],
-    ['Faculty / Academicians / Postdoctoral Researchers', '₹3,500', '₹4,000'],
+    ['Faculty / Academics / Postdoctoral Researchers', '₹3,500', '₹4,000'],
     ['Industry Professionals', '₹5,000', '₹6,000'],
-    ['International Students/Professionals', '$80', '$100'],
+    ['International Students and Professionals', '$80', '$100'],
 ];
 // Poster presentation registration: [category, early bird, regular]. Not charged on top of conference registration.
 $poster_fees = [
     ['UG / PG / PhD Scholars', '₹2,000', '₹2,500'],
-    ['Faculty / Academicians / Postdoctoral Researchers', '₹3,000', '₹3,500'],
+    ['Faculty / Academics / Postdoctoral Researchers', '₹3,000', '₹3,500'],
     ['International Poster Presenters', '$70', '$90'],
 ];
 // Pre-conference workshop fees (Day 1): [category, fee for one workshop].
 $workshop_fees = [
     ['UG / PG / PhD Scholars', '₹800'],
-    ['Faculty / Academicians / Postdoctoral Researchers', '₹1,500'],
+    ['Faculty / Academics / Postdoctoral Researchers', '₹1,500'],
     ['Industry Professionals', '₹2,500'],
-    ['International Students/Professionals', '$40'],
+    ['International Students and Professionals', '$40'],
 ];
 
 $faq = [
     ['Who is the conference for?', 'Researchers, students, and practitioners working on quantitative finance, risk, and data: from stochastic modelling and financial econometrics to market microstructure, portfolio optimisation, and computational finance.'],
-    ['When and where is it?', 'Pre-conference workshops on Thursday 4 March, then the main conference on Friday 5 and Saturday 6 March 2027, at the Victor Menezes Convention Centre (VMCC), IIT Bombay, Mumbai.'],
-    ['How do I submit a paper or a poster?', 'Through the Google Forms linked from the call for papers page. Upload conference papers as a PDF by 20 December 2026; poster abstracts are due by 15 January 2027.'],
+    ['When and where is it?', 'The conference runs from 4 to 6 March 2027 at the Victor Menezes Convention Centre (VMCC), IIT Bombay, Mumbai. Pre-conference workshops take place on Thursday 4 March, followed by the main conference on Friday 5 and Saturday 6 March.'],
+    ['How do I submit a paper or a poster?', 'Use the Google Forms linked from the call for papers page. Submit conference papers as PDFs by 20 December 2026 and poster abstracts by 15 January 2027.'],
     ['How do I register?', 'Registration has not opened yet. Fees and deadlines are on the registration page: early-bird registration closes on 10 February 2027 and regular registration on 25 February 2027.'],
-    ['What will the programme include?', 'Two pre-conference workshops on Day 1, on high-frequency trading and derivative pricing. Then two days with two keynote addresses, numbered parallel sessions, paper presentations, poster sessions over lunch and tea, a panel discussion, a cultural event, dinner, and a valedictory session. Details of individual sessions and speakers will be announced in due course.'],
-    ['Who do I contact with questions?', 'Email info@qrdconference.com for any questions or issues about submissions, registration, the workshops, or your visit.'],
+    ['What will the programme include?', 'The first day features two pre-conference workshops on high-frequency trading and derivative pricing. The two main conference days include keynote addresses, parallel sessions, paper presentations, poster presentations during lunch and tea, a panel discussion, a cultural event, dinner, and a valedictory session. Details of individual sessions and speakers will be announced in due course.'],
+    ['Who should I contact with questions?', 'For questions about submissions, registration, workshops, or your visit, email info@qrdconference.com.'],
 ];
 
 /* Rendering helpers */
@@ -238,6 +239,9 @@ function time_range(string $start, string $end): string {
     return clock($start, !$same).' – '.clock($end);
 }
 function day_hours(array $day): string {
+    if (isset($day['display_end'])) {
+        return time_range($day['slots'][0][0], $day['display_end']);
+    }
     $last = end($day['slots']);
     $hours = time_range($day['slots'][0][0], $last[1]);
     return isset($last[5]) ? time_range($day['slots'][0][0], $last[0]).' onwards' : $hours;
