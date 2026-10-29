@@ -35,13 +35,13 @@ function speaker(array $s): string {
             <h2 id="keynotes-title">Keynote speakers</h2>
             <div class="speaker-list">
                 <article class="keynote">
-                    <p class="keynote-when">Keynote Address I, Friday 5 March, 09:45 AM</p>
+                    <p class="keynote-when">Keynote Address I, Friday 5 March, 09:30 AM</p>
                     <h3>Rethinking the possibilities of finance</h3>
                     <p>Ideas, models, and open questions at the leading edge of quantitative research.</p>
                     <p class="keynote-speaker">Speaker to be announced</p>
                 </article>
                 <article class="keynote">
-                    <p class="keynote-when">Keynote Address II, Saturday 6 March, 09:25 AM</p>
+                    <p class="keynote-when">Keynote Address II, Saturday 6 March, 09:30 AM</p>
                     <h3>Understanding what moves markets</h3>
                     <p>Technology, market structure, and the evolving landscape of electronic trading.</p>
                     <p class="keynote-speaker">Speaker to be announced</p>

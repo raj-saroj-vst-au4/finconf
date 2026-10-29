@@ -4,7 +4,7 @@ require __DIR__.'/includes/site.php';
 page_start('speakers', 'Speakers — QRD 2027, IIT Bombay',
     'Keynote, academia, and industry speakers at QRD 2027, the Conference on Quant, Risk & Data at VMCC, IIT Bombay, 4–6 March 2027.');
 
-// When each keynote takes place, read from the programme: 'Keynote Address I' => 'Friday 5 March, 09:45 AM'.
+// When each keynote takes place, read from the programme: 'Keynote Address I' => 'Friday 5 March, 09:30 AM'.
 $keynote_when = [];
 foreach ($days as $day) {
     foreach ($day['slots'] as [$start, , $kind, $title]) {
@@ -35,7 +35,7 @@ $groups = [
         <div class="wrap">
             <h1 id="page-title" class="page-title" data-split><span class="line">Speakers</span></h1>
             <div class="page-intro">
-                <p class="lede">Two keynote addresses frame the conference, alongside invited speakers from academia and industry. More speakers will be announced.</p>
+                <p class="lede">Two keynote addresses frame the conference, alongside invited contributions from academia and industry. Further speaker announcements will be made in due course.</p>
                 <nav class="actions" aria-label="Speaker groups"><a class="pill pill-line" href="#keynotes">Keynotes</a><a class="pill pill-line" href="#academia">Academia</a><a class="pill pill-line" href="#industry">Industry</a></nav>
             </div>
         </div>
@@ -49,11 +49,11 @@ $groups = [
                     <?php foreach ($keynotes as $slot => $k): ?>
                     <article class="keynote-card">
                         <p class="keynote-when"><?= e($slot) ?><?= isset($keynote_when[$slot]) ? '<br>'.e($keynote_when[$slot]) : '' ?></p>
-                        <h3><?= e($k['title']) ?></h3>
-                        <p class="keynote-summary"><?= e($k['summary']) ?></p>
+                        <h3><?= e($k['title'] !== '' ? $k['title'] : 'Keynote details forthcoming') ?></h3>
+                        <p class="keynote-summary"><?= e($k['summary'] !== '' ? $k['summary'] : 'The lecture title and abstract will be published once confirmed.') ?></p>
                         <div class="keynote-by">
                             <?php if ($k['speaker'] === ''): ?>
-                            <p class="keynote-pending">Speaker to be announced</p>
+                            <p class="keynote-pending">The keynote speaker will be announced in due course.</p>
                             <?php else: ?>
                             <?= portrait($k['speaker'], $k['photo'], 'keynote-portrait') ?>
                             <div><p class="keynote-speaker"><?= speaker_name($k['speaker'], $k['url']) ?></p><?php if ($k['affiliation'] !== ''): ?><p class="speaker-org"><?= e($k['affiliation']) ?></p><?php endif; ?></div>
@@ -62,7 +62,7 @@ $groups = [
                     </article>
                     <?php endforeach; ?>
                 </div>
-                <p class="fine">Keynote themes are indicative. Times are from the <a href="<?= e(href('program')) ?>">programme</a>.</p>
+                <p class="fine">Keynote topics are indicative. Confirmed lecture details and timings are available in the <a href="<?= e(href('program')) ?>">programme</a>.</p>
             </div>
         </div>
     </section>
@@ -87,7 +87,7 @@ $groups = [
                 <?php endforeach; ?>
             </ul>
             <?php else: ?>
-            <div class="prose"><p class="pending">Speakers will be announced.</p></div>
+            <div class="prose"><p class="pending">Invited speakers in this category will be announced in due course.</p></div>
             <?php endif; ?>
         </div>
     </section>

@@ -41,7 +41,7 @@ page_start('home', 'QRD 2027 — Conference on Quant, Risk & Data, IIT Bombay',
     <div class="tone-zone" data-tone="field">
         <section id="programme" class="programme-teaser" <?= figure_attrs(1) ?> data-quiet aria-labelledby="programme-title">
             <div class="wrap">
-                <h2 id="programme-title">One day of workshops, two days of research.</h2>
+                <h2 id="programme-title">Three days where quantitative research meets market practice.</h2>
                 <ol class="teaser-days">
                     <?php foreach ($days as $i => $day): ?>
                     <li>

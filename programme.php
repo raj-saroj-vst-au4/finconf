@@ -2,18 +2,19 @@
 require __DIR__.'/includes/site.php';
 
 page_start('program', 'Programme — QRD 2027, IIT Bombay',
-    'The programme of QRD 2027, the Conference on Quant, Risk & Data: pre-conference workshops on Thursday 4 March, then keynotes, parallel technical sessions, posters, and a panel discussion on 5–6 March 2027 at VMCC, IIT Bombay.');
+    'The programme of QRD 2027, the Conference on Quant, Risk & Data: pre-conference workshops on Thursday 4 March, then keynotes, parallel sessions, poster presentations, a panel discussion, and evening events on 5–6 March 2027 at VMCC, IIT Bombay.');
 
-// The overview chart runs from 8 AM to 6 PM; each day's agenda is drawn in 5-minute rows from its first slot.
+// The overview chart runs from 8 AM to 8 PM to include evening events; each agenda uses 5-minute rows.
 $chart_from = minutes('08:00');
-$chart_span = minutes('18:00') - $chart_from;
+$chart_to = minutes('20:00');
+$chart_span = $chart_to - $chart_from;
 $parallel = ['workshop', 'session'];
 ?>
     <section class="page-hero" <?= figure_attrs(1) ?> aria-labelledby="page-title">
         <div class="wrap">
             <h1 id="page-title" class="page-title" data-split><span class="line">Programme</span></h1>
             <div class="page-intro">
-                <p class="lede">Pre-conference workshops on Thursday 4 March, then the main conference on Friday 5 and Saturday 6 March, at VMCC, IIT Bombay. Session titles and speakers will be announced.</p>
+                <p class="lede">Pre-conference workshops on Thursday 4 March, followed by the main conference on Friday 5 and Saturday 6 March at VMCC, IIT Bombay. Details of individual sessions and speakers will be announced in due course.</p>
             </div>
         </div>
     </section>
@@ -23,7 +24,7 @@ $parallel = ['workshop', 'session'];
             <h2 id="overview-title">The three days, to scale</h2>
             <div class="span-chart">
                 <div class="span-axis" aria-hidden="true">
-                    <?php for ($hour = 8; $hour <= 18; $hour += 2): ?>
+                    <?php for ($hour = 8; $hour <= $chart_to / 60; $hour += 2): ?>
                     <span style="--x: <?= ($hour * 60 - $chart_from) / $chart_span * 100 ?>%"><?= date('g A', mktime($hour, 0)) ?></span>
                     <?php endfor; ?>
                 </div>
@@ -48,7 +49,7 @@ $parallel = ['workshop', 'session'];
                     <li><span class="seg seg-break"></span>Registration and breaks</li>
                 </ul>
             </div>
-            <p class="fine">Each parallel technical session slot and the dedicated paper presentation slot will feature three concurrent sessions conducted in separate halls (Tracks A, B, and C). Tea and coffee breaks are included between sessions and during transitions to ensure sufficient time for networking and movement between venues.</p>
+            <p class="fine">Each parallel technical session and paper-presentation slot will feature three concurrent sessions conducted in separate halls (Tracks A, B, and C). Tea and coffee breaks are included between sessions and during transitions to ensure sufficient time for networking and movement between venues.</p>
         </div>
     </section>
 
@@ -91,9 +92,10 @@ $parallel = ['workshop', 'session'];
                     <?php foreach ($day['slots'] as $slot):
                         [$start, $end, $kind, $title] = $slot;
                         $rows = '--from: '.((minutes($start) - $day_start) / 5 + 1).'; --to: '.((minutes($end) - $day_start) / 5 + 1);
+                        $slot_time = $slot[5] ?? time_range($start, $end);
                     ?>
                     <li class="slot slot-<?= $kind ?>" style="<?= $rows ?>">
-                        <p class="slot-head"><span class="slot-time"><?= e(time_range($start, $end)) ?></span> <span class="slot-title"><?php
+                        <p class="slot-head"><span class="slot-time"><?= e($slot_time) ?></span> <span class="slot-title"><?php
                             if ($kind === 'keynote'): ?><a href="<?= e(href('speakers')) ?>#keynotes"><?= e($title) ?></a><?php
                             else: echo e($title); endif; ?></span><?php
                             if ($kind === 'posters'): ?> <a class="slot-link" href="<?= e(href('papers')) ?>#posters">Call for posters</a><?php endif; ?></p>

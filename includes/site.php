@@ -33,7 +33,7 @@ $workshops = [
 // no lane titles are given). Session titles and speakers will be announced.
 $days = [
     ['label' => 'Day 1', 'date' => 'Thursday 4 March', 'short' => 'Thu 4 Mar', 'theme' => 'Pre-conference workshops',
-        'description' => 'Two workshops run side by side on the same schedule, on high-frequency trading and on derivative pricing: lectures from 10 AM to 1 PM, then a hands-on session from 2 PM to 5 PM. Register for one of them.',
+        'description' => 'Two workshops run side by side on the same schedule, on high-frequency trading and on derivative pricing',
         'lanes' => array_map(fn($w) => [$w['track'], $w['title']], $workshops),
         'slots' => [
             ['09:30', '10:00', 'break', 'Registration'],
@@ -46,39 +46,40 @@ $days = [
             ['15:45', '17:00', 'workshop', 'Hands-on Session, Part II', ['Hands-on Session – Part II', 'Hands-on Session – Part II']],
         ]],
     ['label' => 'Day 2', 'date' => 'Friday 5 March', 'short' => 'Fri 5 Mar', 'theme' => 'Main conference',
-        'description' => 'The first keynote, four slots of parallel technical sessions, posters over lunch, and a panel discussion.',
+        'description' => 'Opening remarks and a keynote, Sessions 1–5 (including paper presentations in Session 5), posters over lunch and tea, a panel discussion, a cultural event, and dinner.',
         'lanes' => [['Track A', ''], ['Track B', ''], ['Track C', '']],
         'slots' => [
-            ['08:30', '09:15', 'break', 'Registration and Welcome Tea'],
-            ['09:15', '09:45', 'plenary', 'Opening Remarks'],
-            ['09:45', '10:45', 'keynote', 'Keynote Address I'],
-            ['10:45', '11:00', 'break', 'Tea / Coffee Break'],
-            ['11:00', '11:45', 'session', 'Parallel Technical Sessions I'],
-            ['11:45', '12:00', 'break', 'Tea / Coffee Break'],
-            ['12:00', '12:45', 'session', 'Parallel Technical Sessions II'],
-            ['12:45', '14:30', 'posters', 'Lunch Break & Poster Presentations'],
-            ['14:30', '15:15', 'session', 'Parallel Technical Sessions III'],
-            ['15:15', '15:30', 'break', 'Tea / Coffee Break'],
-            ['15:30', '16:15', 'session', 'Parallel Technical Sessions IV'],
-            ['16:15', '16:30', 'break', 'Tea / Coffee Break'],
+            ['08:30', '09:00', 'break', 'Breakfast & Registration'],
+            ['09:00', '09:30', 'plenary', 'Opening Remarks'],
+            ['09:30', '10:30', 'keynote', 'Keynote Address I'],
+            ['10:30', '11:15', 'session', 'Parallel Technical Sessions 1'],
+            ['11:15', '11:45', 'break', 'Tea Break'],
+            ['11:45', '12:30', 'session', 'Parallel Technical Sessions 2'],
+            ['12:30', '13:00', 'session', 'Parallel Technical Sessions 3'],
+            ['13:00', '14:30', 'posters', 'Lunch & Poster Presentations'],
+            ['14:30', '15:15', 'session', 'Parallel Technical Sessions 4'],
+            ['15:15', '16:00', 'session', 'Session 5 – Paper Presentations'],
+            ['16:00', '16:30', 'posters', 'Tea & Poster Presentations'],
             ['16:30', '17:30', 'plenary', 'Panel Discussion'],
+            ['18:30', '19:30', 'plenary', 'Cultural Event'],
+            ['19:30', '22:00', 'break', 'Gala Dinner', [], '7:30 PM onwards'],
         ]],
     ['label' => 'Day 3', 'date' => 'Saturday 6 March', 'short' => 'Sat 6 Mar', 'theme' => 'Main conference',
-        'description' => 'The second keynote, three slots of parallel technical sessions, posters over lunch, parallel paper presentations, and the valedictory session.',
+        'description' => 'The second keynote, Sessions 6–9, two paper-presentation slots, lunch, and the valedictory session. Startups are also noted; their timing is to be confirmed.',
         'lanes' => [['Track A', ''], ['Track B', ''], ['Track C', '']],
         'slots' => [
-            ['09:00', '09:25', 'break', 'Welcome Tea / Networking'],
-            ['09:25', '10:25', 'keynote', 'Keynote Address II'],
-            ['10:25', '10:45', 'break', 'Tea / Coffee Break & Transition to Parallel Session Halls'],
-            ['10:45', '11:30', 'session', 'Parallel Technical Sessions V'],
-            ['11:30', '11:45', 'break', 'Tea / Coffee Break'],
-            ['11:45', '12:30', 'session', 'Parallel Technical Sessions VI'],
-            ['12:30', '13:45', 'posters', 'Lunch Break & Poster Presentations'],
-            ['13:45', '14:30', 'session', 'Parallel Technical Sessions VII'],
-            ['14:30', '14:45', 'break', 'Tea / Coffee Break'],
-            ['14:45', '16:45', 'session', 'Parallel Paper Presentation Sessions'],
-            ['16:45', '17:00', 'break', 'Tea / Coffee Break'],
-            ['17:00', '17:30', 'plenary', 'Valedictory Session & Closing Remarks'],
+            ['09:00', '09:30', 'break', 'Breakfast'],
+            ['09:30', '10:30', 'keynote', 'Keynote Address II'],
+            ['10:30', '11:15', 'session', 'Parallel Technical Sessions 6'],
+            ['11:15', '11:45', 'break', 'Tea Break'],
+            ['11:45', '12:30', 'session', 'Parallel Technical Sessions 7'],
+            ['12:30', '13:00', 'session', 'Parallel Technical Sessions 8'],
+            ['13:00', '14:30', 'break', 'Lunch'],
+            ['14:30', '15:15', 'session', 'Parallel Technical Sessions 9'],
+            ['15:15', '16:00', 'session', 'Paper Presentations'],
+            ['16:00', '16:30', 'break', 'Tea'],
+            ['16:30', '17:15', 'session', 'Paper Presentations'],
+            ['17:15', '17:30', 'plenary', 'Valedictory Session', [], '5:15 PM onwards'],
         ]],
 ];
 // Organising committee. 'url' links the photo and name to a profile page; leave it empty until there is one.
@@ -88,20 +89,20 @@ $team = [
     ['role' => 'Faculty Chair', 'name' => 'Prof. Sudeep R. Bapat', 'affiliation' => 'PIC, IITB-Citadel Securities Quantitative Research Lab; Assistant Professor, SJMSOM', 'email' => '', 'url' => 'https://sites.google.com/view/srbapat/home', 'photo' => 'assets/images/team/sudeep-bapat.jpg'],
     ['role' => 'Faculty Co-Chair', 'name' => 'Prof. Piyush Pandey', 'affiliation' => 'Assistant Professor, SJMSOM', 'email' => '', 'url' => 'https://sites.google.com/iitb.ac.in/prof-piyush-pandey/home', 'photo' => 'assets/images/team/piyush-pandey.jpg'],
     ['role' => 'Faculty member', 'name' => 'Prof. Shashi Jain', 'affiliation' => 'Associate Professor, Department of Management Studies, IISc Bangalore', 'email' => '', 'url' => 'https://scholar.google.com/citations?user=TA9NeywAAAAJ&hl=en', 'photo' => 'assets/images/team/Shashi-Jain.jpg'],
-    ['role' => 'Student coordinator', 'name' => 'Aryan Bhambu', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://github.com/aryanbhambu', 'photo' => 'assets/images/team/aryan-bhambu.jpeg'],
-    ['role' => 'Student coordinator', 'name' => 'Anshul Pawaskar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/anshul-pawaskar.jpg'],
-    ['role' => 'Student coordinator', 'name' => 'Keshav Kumar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/keshav-kumar.svg'],
-    ['role' => 'Student coordinator', 'name' => 'Jyoti Pandey', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/jyoti-pandey.svg'],
-    ['role' => 'Student coordinator', 'name' => 'Koushik Bera', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://kberaml.github.io/', 'photo' => 'assets/images/team/koushik-bera.jpg'],
-    ['role' => 'Student coordinator', 'name' => 'Salam Rabindrajit Luwang', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://srabindrajitluwang.github.io/index.html', 'photo' => 'assets/images/team/salam-rabindrajit-luwang.jpg'],
+    ['role' => '', 'name' => 'Aryan Bhambu', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://github.com/aryanbhambu', 'photo' => 'assets/images/team/aryan-bhambu.jpeg'],
+    ['role' => '', 'name' => 'Koushik Bera', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://kberaml.github.io/', 'photo' => 'assets/images/team/koushik-bera.jpg'],
+    ['role' => '', 'name' => 'Salam Rabindrajit Luwang', 'affiliation' => 'Postdoctoral Researcher', 'email' => '', 'url' => 'https://srabindrajitluwang.github.io/index.html', 'photo' => 'assets/images/team/salam-rabindrajit-luwang.jpg'],
+    ['role' => '', 'name' => 'Anshul Pawaskar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/anshul-pawaskar.jpg'],
+    ['role' => '', 'name' => 'Jyoti Pandey', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/jyoti-pandey.svg'],
+    ['role' => '', 'name' => 'Keshav Kumar', 'affiliation' => 'Doctoral Student', 'email' => '', 'url' => '', 'photo' => 'assets/images/team/keshav-kumar.svg'],
 ];
 $faculty = array_values(array_filter($team, fn($m) => str_starts_with($m['role'], 'Faculty')));
 $students = array_values(array_filter($team, fn($m) => !str_starts_with($m['role'], 'Faculty')));
 
 $operations = [
     ['role' => 'Program Manager', 'name' => 'Ms. Varsha Manne', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/varsha-manne.jpg'],
-    ['role' => 'Admin staff', 'name' => 'Salman Shaikh', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/salman-shaikh.jpg'],
-    ['role' => 'Tech staff', 'name' => 'Raj Saroj', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/raj-saroj-portrait.jpg'],
+    ['role' => 'Admin Staff', 'name' => 'Salman Shaikh', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/salman-shaikh.jpg'],
+    ['role' => 'Tech Staff', 'name' => 'Raj Saroj', 'affiliation' => '', 'email' => '', 'photo' => 'assets/images/team/raj-saroj-portrait.jpg'],
 ];
 
 // Speakers page. Keynotes are keyed by their slot title in $days, which gives their day and time; set 'speaker' (and
@@ -109,20 +110,25 @@ $operations = [
 // ['name', 'affiliation', 'talk', 'url', 'photo']: 'url' links the name to a profile page, 'photo' is a square image
 // (initials are shown without one); leave any field empty until known.
 $keynotes = [
-    'Keynote Address I' => ['title' => 'Rethinking the possibilities of finance', 'summary' => 'Ideas, models, and open questions at the leading edge of quantitative research.', 'speaker' => '', 'affiliation' => '', 'url' => '', 'photo' => ''],
-    'Keynote Address II' => ['title' => 'Understanding what moves markets', 'summary' => 'Technology, market structure, and the evolving landscape of electronic trading.', 'speaker' => '', 'affiliation' => '', 'url' => '', 'photo' => ''],
+    'Keynote Address I' => ['title' => '', 'summary' => '', 'speaker' => '', 'affiliation' => '', 'url' => '', 'photo' => ''],
+    'Keynote Address II' => ['title' => '', 'summary' => '', 'speaker' => '', 'affiliation' => '', 'url' => '', 'photo' => ''],
 ];
 $academia_speakers = [
+    ['name' => 'Ajay Shah', 'affiliation' => 'XKDR Forum', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Ajay-Shah.jpg', 'url' => 'https://www.mayin.org/ajayshah/'],
     ['name' => 'Anirban Banerjee', 'affiliation' => 'IIM Ahmedabad', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Anirban-Banerjee.jpg', 'url' => 'https://www.iima.ac.in/faculty-research/faculty-directory/anirban-banerjee'],
     ['name' => 'Joshy Jacob', 'affiliation' => 'IIM Ahmedabad', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Joshy-Jacob.jpeg', 'url' => 'https://www.iima.ac.in/faculty-research/faculty-directory/joshy-jacob'],
     ['name' => 'Nirupama Kulkarni', 'affiliation' => 'CAFRAL', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Nirupama-Kulkarni.jpg', 'url' => 'https://www.nirupamakulkarni.com/'],
     ['name' => 'Samarpan Nawn', 'affiliation' => 'IIM Udaipur', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Samarpan-Nawn.jpg', 'url' => 'https://faculty.iimu.ac.in/directory/samarpan-nawn/'],
+    ['name' => 'Sandeep Juneja', 'affiliation' => 'Ashoka University', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Sandeep-Juneja.jpg', 'url' => 'https://www.ashoka.edu.in/profile/sandeep-juneja/'],
     ['name' => 'Sourav Majumdar', 'affiliation' => 'IIT Kanpur', 'talk' => '', 'photo' => 'assets/images/speakers/academics/Sourav-Majumdar.jpg', 'url' => 'https://iitk.ac.in/sourav-majumdar'],
 ];
 $industry_speakers = [
+    ['name' => 'Deep Narayan Mukherjee', 'affiliation' => 'Boston Consulting Group', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Deep-Narayan.jpeg', 'url' => 'https://www.linkedin.com/in/deep-narayan-35729822'],
     ['name' => 'Eshan Ahluwalia', 'affiliation' => 'BlackRock', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Eshan-Ahluwalia.jpg', 'url' => 'https://scholar.google.com/citations?user=TQvvgzIAAAAJ&hl=en'],
-    ['name' => 'Lokesh Mrig', 'affiliation' => 'State Street Investment Management', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Lokesh-Mrig.png', 'url' => 'https://in.linkedin.com/in/lokesh-mrig'],
-    ['name' => 'Deep Narayan', 'affiliation' => '', 'talk' => '', 'photo' => '', 'url' => 'https://www.linkedin.com/in/deep-narayan-35729822/'],
+    ['name' => 'Lokesh Mrig', 'affiliation' => 'State Street Investment Management', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Lokesh-Mrig.jpeg', 'url' => 'https://in.linkedin.com/in/lokesh-mrig'],
+    ['name' => 'Parijat Garg', 'affiliation' => 'Perivis', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Parijat-Garg.jpeg', 'url' => 'https://in.linkedin.com/in/parijatgarg'],
+    ['name' => 'Pawel Brzozowski', 'affiliation' => 'IMC Trading', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Pawel-Brzozowski.jpeg', 'url' => 'https://www.linkedin.com/in/brzozowskipawel'],
+    ['name' => 'Rishi Kohli', 'affiliation' => 'Jio BlackRock', 'talk' => '', 'photo' => 'assets/images/speakers/industry/Rishi-Kohli.jpeg', 'url' => 'https://in.linkedin.com/in/rishi-kohli-b8a37518'],
 ];
 
 // Scientific programme committee: ['name' => '', 'affiliation' => '', 'url' => '']. 'url' links the name to a profile page.
@@ -212,7 +218,7 @@ $faq = [
     ['When and where is it?', 'Pre-conference workshops on Thursday 4 March, then the main conference on Friday 5 and Saturday 6 March 2027, at the Victor Menezes Convention Centre (VMCC), IIT Bombay, Mumbai.'],
     ['How do I submit a paper or a poster?', 'Through the Google Forms linked from the call for papers page. Upload conference papers as a PDF by 20 December 2026; poster abstracts are due by 15 January 2027.'],
     ['How do I register?', 'Registration has not opened yet. Fees and deadlines are on the registration page: early-bird registration closes on 10 February 2027 and regular registration on 25 February 2027.'],
-    ['What will the programme include?', 'Two pre-conference workshops on Day 1, on high-frequency trading and derivative pricing. Then two days with two keynote addresses, 21 parallel technical sessions, parallel paper presentations, poster sessions over lunch, a panel discussion, and a valedictory session. Session titles and speakers will be announced.'],
+    ['What will the programme include?', 'Two pre-conference workshops on Day 1, on high-frequency trading and derivative pricing. Then two days with two keynote addresses, numbered parallel sessions, paper presentations, poster sessions over lunch and tea, a panel discussion, a cultural event, dinner, and a valedictory session. Details of individual sessions and speakers will be announced in due course.'],
     ['Who do I contact with questions?', 'Email info@qrdconference.com for any questions or issues about submissions, registration, the workshops, or your visit.'],
 ];
 
@@ -232,7 +238,9 @@ function time_range(string $start, string $end): string {
     return clock($start, !$same).' – '.clock($end);
 }
 function day_hours(array $day): string {
-    return time_range($day['slots'][0][0], end($day['slots'])[1]);
+    $last = end($day['slots']);
+    $hours = time_range($day['slots'][0][0], $last[1]);
+    return isset($last[5]) ? time_range($day['slots'][0][0], $last[0]).' onwards' : $hours;
 }
 
 // A local file's URL with its modification time appended, so browsers fetch a replaced photo instead of a cached copy.
