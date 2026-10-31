@@ -59,7 +59,7 @@ $days = [
             ['12:30', '13:00', 'session', 'Parallel Technical Sessions 3'],
             ['13:00', '14:30', 'posters', 'Lunch & Poster Presentations'],
             ['14:30', '15:15', 'session', 'Parallel Technical Sessions 4'],
-            ['15:15', '16:00', 'session', 'Session 5 – Paper Presentations'],
+            ['15:15', '16:00', 'session', 'Paper Presentations Session 5'],
             ['16:00', '16:30', 'posters', 'Tea & Poster Presentations'],
             ['16:30', '17:30', 'plenary', 'Panel Discussion'],
             ['18:30', '19:30', 'plenary', 'Cultural Event'],
